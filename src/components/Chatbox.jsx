@@ -6,11 +6,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import './styling/Chatbox.css';
 
 const generateAvatarColor = (name) => {
-    const initials = name
-        .split(' ')
-        .map(part => part.charAt(0))
-        .join('')
-        .toUpperCase();
+    const [firstName, lastName] = name.split(' ');
+    const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
 
     const colors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#FFC107', '#FF9800', '#FF5722', '#795548', '#607D8B'];
 
@@ -30,7 +27,7 @@ const generateAvatarColor = (name) => {
         borderRadius: '50%',
         fontWeight: 'bold',
         fontSize: '14px',
-        content: `"${initials}.toUpperCase()"`
+        // content: `"${initials}.toUpperCase()"`
     };
 };
 
@@ -38,6 +35,7 @@ const Message = ({ message, divWidth, divHeight, name, type }) => (
     <div className="flex mt-2 ml-1">
         {type ? (
             <>
+                {/* Bot message rendering */}
                 <div className="flex ml-1">
                     <div className="logo flex-initial mr-1">
                         <span className=""><img src={require("./images/DC.png")} alt="DC" height={26} width={26} /></span>
@@ -49,12 +47,13 @@ const Message = ({ message, divWidth, divHeight, name, type }) => (
             </>
         ) : (
             <>
+                {/* User message rendering */}
                 <div className="flex mt-1 mr-1 ml-auto">
                     <div style={{ width: `${divWidth + 15}px`, height: `${divHeight * 25 + 30}px` }} className="bg-[#2A3942] text-white flex-initial pl-2 mt-1 pr-2 rounded-tr-none rounded-2xl ">
                         <span className='text-lg'>{message}</span>
                     </div>
                     <div className="logo mr-1">
-                        <span style={generateAvatarColor(name)}>{name.toUpperCase().substring(0, 2)}</span>
+                        <span style={generateAvatarColor(name)}>{name.split(' ').map(part => part.charAt(0)).join('').toUpperCase()}</span>
                     </div>
                 </div>
             </>
@@ -64,11 +63,12 @@ const Message = ({ message, divWidth, divHeight, name, type }) => (
 
 const Home = () => {
     const [icon, setIcon] = useState('ripple');
-    const [Input, setInput] = useState("");
+    const [input, setInput] = useState('');
+    const [botResponse, setBotResponse] = useState('Sure, I can help you with that.');
     const [isChatOpen, setIsChatOpen] = useState(false);
-    const [botmessages, setBotMessages] = useState(["Hello! Deepesh here, How can I assist you today?"]);
-    const [usermessages, setUsermessages] = useState(["yeah bro got it"]);
-    const [type, setType] = useState(true);
+    const [messages, setMessages] = useState([
+        { text: "Hello! Deepesh here, How can I assist you today?", type: 'bot' },
+    ]);
     const chatContainerRef = useRef(null);
 
     const handleClick = () => {
@@ -76,20 +76,37 @@ const Home = () => {
         setIcon(icon === 'ripple' ? 'cross' : 'ripple');
     };
 
-    const InputChange = (event) => {
+    const handleInput = (event) => {
         setInput(event.target.value);
     };
-    useEffect(() => {
-        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-    }, [usermessages]);
 
-    const sendMessage = () => {
-        if (Input.trim() !== "") {
-            setType(!type);
-            setUsermessages([...usermessages, Input]);
-            setInput("");
+    const handleSendMessage = () => {
+        if (input.trim() !== '') {
+            // Add user message to the messages array
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { text: input, type: 'user' },
+            ]);
+
+            // Clear the input field
+            setInput('');
         }
     };
+
+    useEffect(() => {
+        if (messages[messages.length - 1].type === 'user') {
+            // Simulate bot response after user message
+            setTimeout(() => {
+                setMessages((prevMessages) => [
+                    ...prevMessages,
+                    { text: botResponse, type: 'bot' },
+                ]);
+            }, 1000); // Simulate delay for bot response
+        }
+
+        // Scroll to the latest message
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }, [messages, botResponse]);
 
     return (
         <div className="fixed flex right-4 bottom-[4%]">
@@ -98,27 +115,24 @@ const Home = () => {
                     <LuArrowDownRightFromCircle size={35} className='' />
                 </span>
                 <div style={{ width: 'calc(var(--w288) - 23px)', height: 'calc(var(--h384) - 23px)' }} className="m-auto bg-brownish rounded-xl flex flex-col">
-
                     <div ref={chatContainerRef} className="mt-14 scroll-smooth mb-2 overflow-y-auto">
-                        {(type ? botmessages : usermessages).map((message, index) => (
+                        {messages.map((message, index) => (
                             <Message
                                 key={index}
-                                message={message}
-                                divWidth={Math.min(message.length * 12, 240)}
-                                divHeight={Math.floor(message.length / 20)}
-                                type={type}
+                                message={message.text}
+                                divWidth={Math.min(message.text.length * 12, 240)}
+                                divHeight={Math.floor(message.text.length / 20)}
+                                type={message.type === 'bot'}
                                 name={"deepesh kumar"}
                             />
                         ))}
                     </div>
-
                     <div className='mt-auto'>
                         <div className="flex  bg-[#2A3942] rounded-b-xl">
                             <div className="ml-2 w-full">
-
-                                <input className="bg-[#202C33] text-white indent-2.5 rounded-xl p-1 w-full h-[80%] focus:outline-none my-2" value={Input} onChange={InputChange} type="text" placeholder='Enter Your Message...' />
+                                <input className="bg-[#202C33] text-white indent-2.5 rounded-xl p-1 w-full h-[80%] focus:outline-none my-2" value={input} onChange={handleInput} type="text" placeholder='Enter Your Message...' />
                             </div>
-                            <span className="text-[#8696A0] cursor-pointer rounded-full ml-2 w-fit h-fit p-1 mt-3" type='submit' onClick={sendMessage}>
+                            <span className="text-[#8696A0] cursor-pointer rounded-full ml-2 w-fit h-fit p-1 mt-3" type='submit' onClick={handleSendMessage}>
                                 <AiOutlineSend size={27} className="" />
                             </span>
                         </div>
