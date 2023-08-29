@@ -1,0 +1,86 @@
+/* 288, 384 */
+/* 576, 768 */
+
+:root{
+    --w288: calc(288px * 1.6);
+    --h384: calc(384px * 1.6);
+}
+
+.openit{
+    transition: all 0.5s ease-in-out;
+    border-radius: 100% 100% 70% 100%/ 100% 100% 70% 100%;
+}
+.openitRad{
+    transition: all 0.5s ease-in-out;
+    border-radius: 100% 100% 0% 100%/ 100% 100% 0% 100%;
+}
+.ani{
+    transition: all 0.5s ease-in-out;
+}
+.ani:hover{
+    animation: iconHover 5s infinite ease-in-out;
+}
+
+.chatBox{
+    margin-right: -30px;
+    margin-bottom: 20px;
+    transform-origin: bottom right;
+    animation: show 1s forwards ease-out;
+    transition: all 1s ease-in-out;
+}
+
+.animate-rot{
+    animation: rot 0.6s 1 ease-in-out;
+}
+
+@keyframes rot {
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(-180deg);
+      }
+}
+
+@keyframes iconHover {
+    0%{
+        border-radius: 100% 100% 30% 100%/ 100% 100% 70% 100%;
+        transform: scale(1);
+    }
+    20%{
+        transform: scale(1.1);
+        border-radius: 100% 100% 100% 30%/ 100% 100% 100% 70%;
+    }
+    40%{
+        transform: scale(1);
+        border-radius: 100% 100% 100% 100%/ 100% 100% 100% 100%;
+    }
+    60%{
+        transform: scale(1.1);
+        border-radius: 100% 30% 100% 100%/ 100% 70% 100% 100%;
+    }
+    80%{
+        border-radius: 30% 100% 100% 100%/ 70% 100% 100% 100%; 
+    }
+    100%{
+        border-radius: 80% 100% 30% 100%/ 100% 100% 70% 100%;
+    }
+}
+
+@keyframes show {
+    0%{
+        opacity: 20%;
+        border-radius: 100% 0% 100% 0%/ 100% 0% 100% 50%;
+        transform: scale(0) skew(0deg);
+    }
+    60%{
+        opacity: 70%;
+        transform: scale(0) skew(-20deg);
+    }
+    100%{
+        opacity: 100%;
+        border-radius: 12px;
+        transform: scale(1) skew(0deg);
+    }
+}
+
