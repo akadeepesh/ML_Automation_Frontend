@@ -115,7 +115,7 @@ const Home = () => {
                     <LuArrowDownRightFromCircle size={35} className='' />
                 </span>
                 <div style={{ width: 'calc(var(--w288) - 23px)', height: 'calc(var(--h384) - 23px)' }} className="m-auto bg-brownish rounded-xl flex flex-col">
-                    <div ref={chatContainerRef} className="mt-14 scroll-smooth mb-2 overflow-y-auto">
+                    <div ref={chatContainerRef} className="mt-14 scroll-smooth mb-2 h-full overflow-y-auto">
                         {messages.map((message, index) => (
                             <Message
                                 key={index}
