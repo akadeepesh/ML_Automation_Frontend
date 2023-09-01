@@ -64,7 +64,7 @@ const Message = ({ message, divWidth, divHeight, name, type }) => (
 const Home = () => {
     const [icon, setIcon] = useState('ripple');
     const [input, setInput] = useState('');
-    const [botResponse, setBotResponse] = useState('Sure, I can help you with that.');
+    const [botResponse, setBotResponse] = useState('I am currently in development mode, thanks for your patience');
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [messages, setMessages] = useState([
         { text: "Hello! Deepesh here, How can I assist you today?", type: 'bot' },
