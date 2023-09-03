@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
+import './styling/Navbar.css'
 
 const Navbar = () => {
     // const [nav, setNav] = useState(false);
     return (
         <header>
             <nav>
-                <div class="bg-blackish">
+                <div class="bar">
                     <div class="flex justify-between h-16 px-10 shadow items-center">
                         <div class="flex items-center space-x-8">
                             <div class="text-xl text-brownish lg:text-2xl font-bold cursor-pointer">

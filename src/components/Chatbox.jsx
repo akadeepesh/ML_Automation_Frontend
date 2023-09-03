@@ -22,11 +22,11 @@ const generateAvatarColor = (name) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '32px',
-        height: '32px',
+        width: '26px',
+        height: '26px',
         borderRadius: '50%',
         fontWeight: 'bold',
-        fontSize: '14px',
+        fontSize: '13px',
         // content: `"${initials}.toUpperCase()"`
     };
 };
@@ -52,7 +52,7 @@ const Message = ({ message, divWidth, divHeight, name, type }) => (
                     <div style={{ width: `${divWidth + 15}px`, height: `${divHeight * 25 + 30}px` }} className="bg-[#2A3942] text-white flex-initial pl-2 mt-1 pr-2 rounded-tr-none rounded-2xl ">
                         <span className='text-lg'>{message}</span>
                     </div>
-                    <div className="logo mr-1">
+                    <div className="logo mr-1 ml-1">
                         <span style={generateAvatarColor(name)}>{name.split(' ').map(part => part.charAt(0)).join('').toUpperCase()}</span>
                     </div>
                 </div>
@@ -110,11 +110,11 @@ const Home = () => {
 
     return (
         <div className="fixed flex right-4 bottom-[4%]">
-            <div className={`w-[var(--w288)] h-[var(--h384)] chatBox ${isChatOpen ? "flex animate-show z-10" : "hidden"} rounded-xl bg-blackish`}>
+            <div className={`w-[var(--w288)] h-[var(--h384)] chatBox ${isChatOpen ? "flex animate-show z-10" : "hidden-chat"} rounded-xl bg-blackish`}>
                 <span className={`bg-blackish text-blueish absolute w-fit h-fit cursor-pointer rounded-full p-3`} onClick={handleClick}>
                     <LuArrowDownRightFromCircle size={35} className='' />
                 </span>
-                <div style={{ width: 'calc(var(--w288) - 23px)', height: 'calc(var(--h384) - 23px)' }} className="m-auto bg-brownish rounded-xl flex flex-col">
+                <div style={{ width: 'calc(var(--w288) - 23px)', height: 'calc(var(--h384) - 23px)' }} className="m-auto chatarea rounded-xl flex flex-col">
                     <div ref={chatContainerRef} className="mt-14 scroll-smooth mb-2 h-full overflow-y-auto">
                         {messages.map((message, index) => (
                             <Message

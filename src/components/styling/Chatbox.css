@@ -6,33 +6,34 @@
     --h384: calc(384px * 1.6);
 }
 
-.openit{
+*{
     transition: all 0.5s ease-in-out;
+}
+
+.openit{
     border-radius: 100% 100% 70% 100%/ 100% 100% 70% 100%;
 }
 .openitRad{
-    transition: all 0.5s ease-in-out;
     border-radius: 100% 100% 0% 100%/ 100% 100% 0% 100%;
 }
-.ani{
-    transition: all 0.5s ease-in-out;
-    /* animation: rev 0.6s ease-in-out; */
-}
+
 .ani:hover{
     animation: iconHover 5s infinite ease-in-out;
 }
 
+.animate-rot{
+    animation: rot 0.6s ease-in-out;
+}
+
+.animate-rot:active{
+    animation: rev 0.6s ease-in-out;
+}
 .chatBox{
     margin-right: -30px;
     margin-bottom: 20px;
     transform-origin: bottom right;
     animation: show 1s forwards ease-out;
     transition: all 1s ease-in-out;
-    /* animation: hide 1s forwards ease-in; */
-}
-
-.animate-rot{
-    animation: rot 0.6s 1 ease-in-out;
 }
 
 @keyframes rot {
@@ -41,17 +42,18 @@
       }
       to {
         transform: rotate(-180deg);
-      }
+      }  
 }
 
-/* @keyframes rev {
+@keyframes rev {
     from {
         transform: rotate(-180deg);
       }
       to {
         transform: rotate(0deg);
       }
-} */
+}      
+
 
 @keyframes iconHover {
     0%{
@@ -89,14 +91,19 @@
         transform: scale(0) skew(-20deg);
     }
     100%{
-        /* display: flex; */
         opacity: 100%;
         border-radius: 12px;
         transform: scale(1) skew(0deg);
     }
 }
 
-/* @keyframes hide {
+.hidden-chat {
+    visibility: hidden;
+    animation: hide 1s forwards;
+}
+
+
+@keyframes hide {
     0%{
         opacity: 100%;
         border-radius: 12px;
@@ -107,10 +114,12 @@
         transform: scale(0) skew(-20deg);
     }
     100%{
-        display: none;
         opacity: 20%;
         border-radius: 100% 0% 100% 0%/ 100% 0% 100% 50%;
         transform: scale(0) skew(0deg);
     }
-} */
+} 
 
+.chatarea{
+    background: linear-gradient(179.4deg, rgb(253, 240, 233) 2.2%, rgb(255, 194, 203) 96.2%);
+}
