@@ -25,10 +25,10 @@ const Home = () => {
                 <p className="text-white">{item.description}</p>
               </div>
               <div className="mt-4 z-10 flex justify-between items-center">
-                <span className='cursor-pointer text-white hover:text-indigo-600'>
+                <span className='cursor-pointer text-white hover:text-blueish'>
                   <BsFillInfoCircleFill size={30} />
                 </span>
-                <span className='cursor-pointer text-white hover:text-indigo-600'>
+                <span className='cursor-pointer text-white hover:text-blueish'>
                   <BsArrowRightCircle size={30} />
                 </span>
               </div>
@@ -36,7 +36,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <hr className="my-8" />
+      <hr className="my-8 h-[2px] bg-white" />
       <div className="flex flex-wrap -mx-4 mt-20">
         <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 px-4 mb-8">
           <div className='bg-slate-600 rounded-3xl p-4 h-full BOX flex flex-col justify-between'>
@@ -45,10 +45,10 @@ const Home = () => {
               <p className="text-white">{bertData.description}</p>
             </div>
             <div className="mt-4 z-10 flex justify-between items-center">
-              <span className='cursor-pointer text-white hover:text-indigo-600'>
+              <span className='cursor-pointer text-white hover:text-blueish'>
                 <BsFillInfoCircleFill size={30} />
               </span>
-              <span className='cursor-pointer text-white hover:text-indigo-600'>
+              <span className='cursor-pointer text-white hover:text-blueish'>
                 <BsArrowRightCircle size={30} />
               </span>
             </div>
