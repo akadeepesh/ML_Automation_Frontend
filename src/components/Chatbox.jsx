@@ -40,7 +40,7 @@ const Message = ({ message, divWidth, divHeight, name, type }) => (
                     <div className="logo flex-initial mr-1">
                         <span className=""><img src={require("./images/DC.png")} alt="DC" height={26} width={26} /></span>
                     </div>
-                    <div style={{ width: `${divWidth + 15}px`, height: `${divHeight * 25 + 30}px` }} className="bg-[#2A3942] text-white pl-2 mt-1 pr-2 rounded-tl-none rounded-2xl ">
+                    <div style={{ width: `${divWidth + 15}px`, height: `${divHeight * 25 + 30}px` }} className="bg-[#2A3942] text-white pl-2 mt-1 pr-2 rounded-tl-none rounded-2xl break-words">
                         <span style={{ width: 255 }} className='text-lg w-4 h-4'>{message}</span>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ const Message = ({ message, divWidth, divHeight, name, type }) => (
             <>
                 {/* User message rendering */}
                 <div className="flex mt-1 mr-1 ml-auto">
-                    <div style={{ width: `${divWidth + 15}px`, height: `${divHeight * 25 + 30}px` }} className="bg-[#2A3942] text-white flex-initial pl-2 mt-1 pr-2 rounded-tr-none rounded-2xl ">
+                    <div style={{ width: `${divWidth + 15}px`, height: `${divHeight * 25 + 30}px` }} className="bg-[#2A3942] text-white flex-initial pl-2 mt-1 pr-2 rounded-tr-none rounded-2xl break-words">
                         <span className='text-lg'>{message}</span>
                     </div>
                     <div className="logo mr-1 ml-1">

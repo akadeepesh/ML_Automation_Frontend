@@ -6,12 +6,12 @@ const Home = () => {
   return (
     <div className='max-w-screen h-[1000px]'>
       <div className="TEXT m-12 flex mt-12 space-x-40">
-        <div className="BOX w-72 h-44 flex rounded-3xl">
+        <div className="BOX bg-slate-600 w-72 h-44 flex rounded-3xl">
           <div className='m-2 ml-4 text-white MAIN text-2xl'>
-            Text Tokenization
+            <div className='w-48'>Text Tokenization</div>
           </div>
           <div className="grid ml-6 mt-24">
-            <span className='grid-flow-col cursor-pointer text-white'>
+            <span className='grid-flow-col cursor-pointer text-white hover:text-black'>
               <BsFillInfoCircleFill size={30} className='' />
             </span>
             <span className='grid-flow-col cursor-pointer text-white hover:text-black'>
@@ -19,12 +19,12 @@ const Home = () => {
             </span>
           </div>
         </div>
-        <div className="BOX w-72 h-44 flex rounded-3xl">
-          <div className='m-2 ml-4 text-white MAIN text-2xl'>
-            Text Tokenization
+        <div className="BOX bg-slate-600 w-72 h-44 flex rounded-3xl">
+          <div className='m-2 ml-4 text-white flex MAIN text-2xl'>
+            <div className='w-48'>Stop Word Removal</div>
           </div>
           <div className="grid ml-6 mt-24">
-            <span className='grid-flow-col cursor-pointer text-white'>
+            <span className='grid-flow-col cursor-pointer text-white hover:text-black'>
               <BsFillInfoCircleFill size={30} className='' />
             </span>
             <span className='grid-flow-col cursor-pointer text-white hover:text-black'>
@@ -32,12 +32,12 @@ const Home = () => {
             </span>
           </div>
         </div>
-        <div className="BOX w-72 h-44 flex rounded-3xl">
+        <div className="BOX bg-slate-600 w-72 h-44 flex rounded-3xl">
           <div className='m-2 ml-4 text-white MAIN text-2xl'>
-            Text Tokenization
+            <div className='w-48'>Stemming /Lemmatization</div>
           </div>
           <div className="grid ml-6 mt-24">
-            <span className='grid-flow-col cursor-pointer text-white'>
+            <span className='grid-flow-col cursor-pointer text-white hover:text-black'>
               <BsFillInfoCircleFill size={30} className='' />
             </span>
             <span className='grid-flow-col cursor-pointer text-white hover:text-black'>
@@ -46,6 +46,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <hr />
     </div>
   )
 }
