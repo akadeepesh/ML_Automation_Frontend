@@ -123,3 +123,25 @@
 .chatarea{
     background: linear-gradient(179.4deg, rgb(253, 240, 233) 2.2%, rgb(255, 194, 203) 96.2%);
 }
+
+
+@media (max-width: 1366px) {
+    :root {
+        --w288: calc(288px * 1.4);
+        --h384: calc(384px * 1.4);
+    }
+}
+
+@media (max-width: 1280px) {
+    :root {
+        --w288: calc(288px * 1.2);
+        --h384: calc(384px * 1.2);
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --w288: calc(288px * 1);
+        --h384: calc(384px * 1);
+    }
+}

@@ -1,9 +1,8 @@
-import React from 'react'; //{ useState } 
+import React from 'react';
 import { Link } from 'react-scroll';
 import './styling/Navbar.css'
 
 const Navbar = () => {
-    // const [nav, setNav] = useState(false);
     return (
         <header>
             <nav>
@@ -13,7 +12,7 @@ const Navbar = () => {
                             <div className="text-xl text-brownish lg:text-2xl font-bold cursor-pointer">
                                 <a href="/">DeCoder</a>
                             </div>
-                            <ul className="md:flex justify-around cursor-pointer space-x-20">
+                            <ul className="hidden md:flex justify-around cursor-pointer space-x-20">
                                 <li className='hover:text-indigo-600 ml-80 text-brownish transition-all ease-in-out'>
                                     <Link to='home' smooth duration={500}>Home</Link>
                                 </li>
@@ -40,4 +39,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
