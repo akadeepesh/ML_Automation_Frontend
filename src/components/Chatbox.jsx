@@ -109,7 +109,7 @@ const Home = () => {
     }, [messages, botResponse]);
 
     return (
-        <div className="fixed flex right-4 bottom-[4%]">
+        <div className="fixed flex right-4 bottom-[4%] z-20">
             <div className={`w-[var(--w288)] h-[var(--h384)] chatBox ${isChatOpen ? "flex animate-show z-10" : "hidden-chat"} rounded-xl bg-blackish`}>
                 <span className={`bg-blackish text-blueish absolute w-fit h-fit cursor-pointer rounded-full p-3`} onClick={handleClick}>
                     <LuArrowDownRightFromCircle size={35} className='' />
