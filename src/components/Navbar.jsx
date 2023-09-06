@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
+import { Link as RouteLink } from 'react-router-dom';
 import './styling/Navbar.css'
 
 const Navbar = () => {
@@ -30,7 +31,7 @@ const Navbar = () => {
                         <div className="flex space-x-4 items-center">
                             <a href="/" className="text-brownish text-sm">LOGIN</a>
                             <li className="bg-indigo-600 px-4 py-2 cursor-pointer rounded-2xl text-white hover:bg-indigo-500 text-sm">
-                                <Link to='Signup'>SIGN UP</Link>
+                                <RouteLink to='/signup'>SIGN UP</RouteLink>
                             </li>
                         </div>
                     </div>

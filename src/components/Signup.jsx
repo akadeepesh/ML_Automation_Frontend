@@ -14,7 +14,7 @@ import './styling/Signup.css'
 
 function App() {
     return (
-        <MDBContainer fluid className='p-4 background-radial-gradient overflow-hidden'>
+        <MDBContainer name='signup' fluid className='p-4 background-radial-gradient overflow-hidden'>
 
             <MDBRow>
 
