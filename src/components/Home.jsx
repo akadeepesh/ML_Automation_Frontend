@@ -14,8 +14,8 @@ const bertData = {
 };
 
 const Audio = [
-  { title: 'Noise Reduction', description: 'dekh lenge yaree' },
-  { title: 'Feature Extraction', description: 'ye bhi dekh lenge yaree' },
+  { title: 'Noise Reduction', description: 'Noise reduction is the process of removing unwanted noise from an audio signal.' },
+  { title: 'Feature Extraction', description: 'Feature extraction is the process of transforming raw data into a set of features that can be easily understood and analyzed.' },
 ];
 
 const Home = () => {
@@ -49,6 +49,7 @@ const Home = () => {
               <div className='text-white MAIN text-2xl mb-4'>{bertData.title}</div>
               <p className="text-white">{bertData.description}</p>
             </div>
+            <div className="flex"></div>
             <div className="mt-4 z-10 flex justify-between items-center">
               <span className='cursor-pointer text-white hover:text-blueish'>
                 <BsFillInfoCircleFill size={30} />
