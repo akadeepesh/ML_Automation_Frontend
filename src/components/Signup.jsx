@@ -1,96 +1,92 @@
 import React from 'react';
-import {
-    MDBBtn,
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBCard,
-    MDBCardBody,
-    MDBInput,
-    MDBCheckbox,
-    MDBIcon
-} from 'mdb-react-ui-kit';
-import './styling/Signup.css'
+import './styling/Signup.css';
 
 function App() {
     return (
-        <MDBContainer name='signup' fluid className='p-4 background-radial-gradient overflow-hidden'>
+        <div className="background-radial-gradient overflow-hidden">
+            <div className="container mx-auto p-4">
+                <div className="flex flex-col md:flex-row">
+                    <div className="md:w-1/2 text-center md:text-md-start md:flex md:flex-col justify-center">
+                        <h1 className="my-5 text-3xl font-bold leading-tight text-indigo-50">
+                            One step to <br />
+                            <span className="text-indigo-100">Dataset Creation</span>
+                        </h1>
 
-            <MDBRow>
+                        <p className="text-indigo-200">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Eveniet, itaque accusantium odio, soluta, corrupti aliquam
+                            quibusdam tempora at cupiditate quis eum maiores libero
+                            veritatis? Dicta facilis sint aliquid ipsum atque?
+                        </p>
+                    </div>
 
-                <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
+                    <div className="relative md:w-1/2">
+                        <div id="radius-shape-1" className="absolute rounded-full shadow-xl"></div>
+                        <div id="radius-shape-2" className="absolute shadow-xl"></div>
 
-                    <h1 className="my-5 display-3 fw-bold ls-tight px-3" style={{ color: 'hsl(218, 81%, 95%)' }}>
-                        The best offer <br />
-                        <span style={{ color: 'hsl(218, 81%, 75%)' }}>for your business</span>
-                    </h1>
+                        <div className="my-5 bg-opacity-75 bg-white rounded-lg shadow-xl bg-glass">
+                            <div className="p-5">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block mb-4 text-gray-700">First name</label>
+                                        <input
+                                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
+                                            type="text"
+                                        />
+                                    </div>
 
-                    <p className='px-3' style={{ color: 'hsl(218, 81%, 85%)' }}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-                        quibusdam tempora at cupiditate quis eum maiores libero
-                        veritatis? Dicta facilis sint aliquid ipsum atque?
-                    </p>
+                                    <div>
+                                        <label className="block mb-4 text-gray-700">Last name</label>
+                                        <input
+                                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
+                                            type="text"
+                                        />
+                                    </div>
+                                </div>
 
-                </MDBCol>
+                                <label className="block mb-4 text-gray-700">Email</label>
+                                <input
+                                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
+                                    type="email"
+                                />
 
-                <MDBCol md='6' className='position-relative'>
+                                <label className="block mb-4 text-gray-700">Password</label>
+                                <input
+                                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
+                                    type="password"
+                                />
 
-                    <div id="radius-shape-1" className="position-absolute rounded-circle shadow-5-strong"></div>
-                    <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
+                                <button
+                                    className="w-full py-2 mt-10 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+                                    type="button"
+                                >
+                                    Sign Up
+                                </button>
 
-                    <MDBCard className='my-5 bg-glass'>
-                        <MDBCardBody className='p-5'>
+                                <div className="text-center mt-4">
+                                    <p>Or sign up with:</p>
 
-                            <MDBRow>
-                                <MDBCol col='6'>
-                                    <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text' />
-                                </MDBCol>
-
-                                <MDBCol col='6'>
-                                    <MDBInput wrapperClass='mb-4' label='Last name' id='form2' type='text' />
-                                </MDBCol>
-                            </MDBRow>
-
-                            <MDBInput wrapperClass='mb-4' label='Email' id='form3' type='email' />
-                            <MDBInput wrapperClass='mb-4' label='Password' id='form4' type='password' />
-
-                            <div className='d-flex justify-content-center mb-4'>
-                                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
+                                    <div className="flex justify-center mt-2">
+                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
+                                            <i className="fab fa-facebook-f"></i>
+                                        </button>
+                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
+                                            <i className="fab fa-twitter"></i>
+                                        </button>
+                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
+                                            <i className="fab fa-google"></i>
+                                        </button>
+                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
+                                            <i className="fab fa-github"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-
-                            <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
-
-                            <div className="text-center">
-
-                                <p>or sign up with:</p>
-
-                                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                                    <MDBIcon fab icon='facebook-f' size="sm" />
-                                </MDBBtn>
-
-                                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                                    <MDBIcon fab icon='twitter' size="sm" />
-                                </MDBBtn>
-
-                                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                                    <MDBIcon fab icon='google' size="sm" />
-                                </MDBBtn>
-
-                                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                                    <MDBIcon fab icon='github' size="sm" />
-                                </MDBBtn>
-
-                            </div>
-
-                        </MDBCardBody>
-                    </MDBCard>
-
-                </MDBCol>
-
-            </MDBRow>
-
-        </MDBContainer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }
 

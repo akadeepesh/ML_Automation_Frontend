@@ -29,10 +29,10 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div className="flex space-x-4 items-center">
-                            <a href="/" className="text-brownish text-sm">LOGIN</a>
-                            <li className="bg-indigo-600 px-4 py-2 cursor-pointer rounded-2xl text-white hover:bg-indigo-500 text-sm">
+                            <ul className="text-brownish cursor-pointer text-sm">LOGIN</ul>
+                            <ul className="bg-indigo-600 cursor-pointer px-4 py-2 rounded-2xl text-white hover:bg-indigo-500 text-sm">
                                 <RouteLink to='/signup'>SIGN UP</RouteLink>
-                            </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
