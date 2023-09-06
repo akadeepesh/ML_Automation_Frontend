@@ -9,7 +9,7 @@ const data = [
 ];
 
 const bertData = {
-  title: 'NLP Q/A fine-tuning',
+  title: 'NLP Q/A model fine-tuning',
   description: 'Fine-tuning is the process of training a pre-trained model on a specific task, This is for creating dataset for question answer model means for you have to provide a context, question and then answer from that context.',
 };
 
