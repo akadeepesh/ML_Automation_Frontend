@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 @layer base{
   html{
       font-family: 'Poppins', sans-serif;

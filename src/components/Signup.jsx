@@ -66,12 +66,12 @@ function App() {
                                 <div className="text-center mt-4">
                                     <p>Or sign up with:</p>
 
-                                    <div className="flex justify-center mt-2">
+                                    <div className="flex justify-center mt-2 text-lg">
                                         <button className="mx-3 text-indigo-500 hover:text-indigo-600">
                                             <i className="fab fa-facebook-f"></i>
                                         </button>
                                         <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-twitter"></i>
+                                            <i className="fab fa-linkedin"></i>
                                         </button>
                                         <button className="mx-3 text-indigo-500 hover:text-indigo-600">
                                             <i className="fab fa-google"></i>
