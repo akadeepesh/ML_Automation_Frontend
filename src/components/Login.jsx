@@ -1,10 +1,12 @@
 import React from 'react';
 import './styling/Signup.css';
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 function Login() {
     return (
         <div className="background-radial-gradient overflow-hidden">
             <div className="container mx-auto p-4">
+                <div className='text-white cursor-pointer hover:text-black w-fit'><a href="/"><BsArrowLeftCircle size={30} /></a></div>
                 <div className="flex flex-col md:flex-row">
                     <div className="md:w-1/2 text-center md:text-md-start md:flex md:flex-col justify-center">
                         <h1 className="my-5 text-3xl font-bold leading-tight text-indigo-50">
