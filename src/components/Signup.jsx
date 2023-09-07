@@ -44,13 +44,13 @@ function App() {
                                     </div>
                                 </div>
 
-                                <label className="block mb-4 text-gray-700">Email</label>
+                                <label className="block mb-4 mt-6 text-gray-700">Email</label>
                                 <input
                                     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                     type="email"
                                 />
 
-                                <label className="block mb-4 text-gray-700">Password</label>
+                                <label className="block mb-4 mt-6 text-gray-700">Password</label>
                                 <input
                                     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                     type="password"
@@ -62,25 +62,6 @@ function App() {
                                 >
                                     Sign Up
                                 </button>
-
-                                <div className="text-center mt-4">
-                                    <p>Or sign up with:</p>
-
-                                    <div className="flex justify-center mt-2 text-lg">
-                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-facebook-f"></i>
-                                        </button>
-                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-linkedin"></i>
-                                        </button>
-                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-google"></i>
-                                        </button>
-                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-github"></i>
-                                        </button>
-                                    </div>
-                                </div>
                                 <p className="mt-4 text-gray-700 text-center">
                                     Already have an account? <a href="/login" className="text-indigo-500">Log in here</a>.
                                 </p>

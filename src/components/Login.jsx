@@ -26,14 +26,14 @@ function Login() {
 
                         <div className="my-5 bg-opacity-75 bg-white rounded-lg shadow-xl bg-glass">
                             <div className="p-5">
-                                <label className="block mb-4 text-gray-700">Email</label>
+                                <label className="block mb-4 mt-6 text-gray-700">Email</label>
                                 <input
                                     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                     type="email"
                                     placeholder="Email"
                                 />
 
-                                <label className="block mb-4 text-gray-700">Password</label>
+                                <label className="block mb-4 mt-6 text-gray-700">Password</label>
                                 <input
                                     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                     type="password"
@@ -46,26 +46,6 @@ function Login() {
                                 >
                                     Log In
                                 </button>
-
-                                <div className="text-center mt-4">
-                                    <p>Or log in with:</p>
-
-                                    <div className="flex justify-center mt-2 text-lg">
-                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-facebook-f"></i>
-                                        </button>
-                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-linkedin"></i>
-                                        </button>
-                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-google"></i>
-                                        </button>
-                                        <button className="mx-3 text-indigo-500 hover:text-indigo-600">
-                                            <i className="fab fa-github"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
                                 <p className="mt-4 text-gray-700 text-center">
                                     Don't have an account? <a href="/signup" className="text-indigo-500">Sign up here</a>.
                                 </p>
