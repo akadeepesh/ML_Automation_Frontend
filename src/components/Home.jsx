@@ -1,6 +1,7 @@
 import React from 'react';
 import './styling/Home.css';
 import { BsArrowRightCircle, BsFillInfoCircleFill } from "react-icons/bs";
+import { Link as RouteLink } from 'react-router-dom';
 
 const data = [
   { title: 'Text Tokenization', description: 'Text tokenization is the process of breaking down a piece of text into smaller units called tokens. These tokens can be words, characters, or subwords.' },
@@ -55,7 +56,7 @@ const Home = () => {
                 <BsFillInfoCircleFill size={30} />
               </span>
               <span className='cursor-pointer text-white hover:text-blueish'>
-                <BsArrowRightCircle size={30} />
+                <RouteLink to='/tokenization'><BsArrowRightCircle size={30} /></RouteLink>
               </span>
             </div>
           </div>
