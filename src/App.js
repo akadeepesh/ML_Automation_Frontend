@@ -6,6 +6,8 @@ import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Tokenization from './components/Tokenization';
+import StopWord from './components/Stop-word';
+import StemmingLemmatization from './components/StemLem';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 const Layout = () => {
@@ -20,6 +22,8 @@ const Layout = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path='/login' element={<Login/>}/>
         <Route path='/tokenization' element={<Tokenization/>}></Route>
+        <Route path='/stop-word-removal' element={<StopWord/>}></Route>
+        <Route path='/Stem-Lem' element={<StemmingLemmatization/>}></Route>
       </Routes>
     </>
   );

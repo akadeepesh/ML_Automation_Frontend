@@ -29,12 +29,8 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div className="flex space-x-4 items-center">
-                            <ul className="text-brownish cursor-pointer text-sm">
-                                <RouteLink to='/login'>LOGIN</RouteLink>
-                            </ul>
-                            <ul className="bg-indigo-600 cursor-pointer px-4 py-2 rounded-2xl text-white hover:bg-indigo-500 text-sm">
-                                <RouteLink to='/signup'>SIGN UP</RouteLink>
-                            </ul>
+                            <RouteLink to='/login'><ul className="text-brownish cursor-pointer text-sm">LOGIN</ul></RouteLink>
+                            <RouteLink to='/singup'><ul className="bg-indigo-600 cursor-pointer px-4 py-2 rounded-2xl text-white hover:bg-indigo-500 text-sm">SIGN UP</ul></RouteLink>
                         </div>
                     </div>
                 </div>

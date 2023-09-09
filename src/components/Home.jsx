@@ -20,6 +20,11 @@ const Audio = [
 ];
 
 const Home = () => {
+  const datapages = [
+    "/tokenization",
+    "/stop-word-removal",
+    "/Stem-Lem",
+  ];
   return (
     <div className='max-w-screen-xl mx-auto p-4'>
       <div className="flex flex-wrap -mx-4 mt-20">
@@ -35,7 +40,7 @@ const Home = () => {
                   <BsFillInfoCircleFill size={30} />
                 </span>
                 <span className='cursor-pointer text-white hover:text-blueish'>
-                  <BsArrowRightCircle size={30} />
+                  <RouteLink to={datapages[index]}><BsArrowRightCircle size={30} /></RouteLink>
                 </span>
               </div>
             </div>
@@ -56,7 +61,7 @@ const Home = () => {
                 <BsFillInfoCircleFill size={30} />
               </span>
               <span className='cursor-pointer text-white hover:text-blueish'>
-                <RouteLink to='/tokenization'><BsArrowRightCircle size={30} /></RouteLink>
+                <BsArrowRightCircle size={30} />
               </span>
             </div>
           </div>
