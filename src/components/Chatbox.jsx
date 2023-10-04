@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { LuArrowDownRightFromCircle } from 'react-icons/lu';
 import { HiOutlineCursorArrowRipple } from "react-icons/hi2";
-import { AiOutlineSend } from "react-icons/ai";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineSend, AiOutlineClose } from "react-icons/ai";
 import './styling/Chatbox.css';
 
 const generateAvatarColor = (name) => {
