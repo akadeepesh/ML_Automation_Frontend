@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react'
 import './styling/Signup.css';
 import { BsArrowLeftCircle } from "react-icons/bs";
 // import { Link as RouteLink } from 'react-router-dom';
 
 export default function SignUp() {
+
+    const [formData, setFormData] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: ''
+    });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const response = await fetch('http://localhost:8000/users/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+        console.log(data);
+    };
+
     return (
         <div className="background-radial-gradient overflow-hidden">
             <div className="container mx-auto p-4">
@@ -28,13 +51,15 @@ export default function SignUp() {
                         <div id="radius-shape-2" className="absolute shadow-xl"></div>
 
                         <div className="my-5 bg-opacity-75 bg-white rounded-lg shadow-xl bg-glass">
-                            <div className="p-5">
+                            <form onSubmit={handleSubmit} className="p-5">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label className="block mb-4 text-gray-700">First name</label>
                                         <input
                                             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                             type="text"
+                                            value={formData.firstname}
+                                            onChange={e => setFormData({ ...formData, firstname: e.target.value })}
                                         />
                                     </div>
 
@@ -43,6 +68,8 @@ export default function SignUp() {
                                         <input
                                             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                             type="text"
+                                            value={formData.lastname}
+                                            onChange={e => setFormData({ ...formData, lastname: e.target.value })}
                                         />
                                     </div>
                                 </div>
@@ -51,12 +78,16 @@ export default function SignUp() {
                                 <input
                                     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                     type="email"
+                                    value={formData.email}
+                                    onChange={e => setFormData({ ...formData, email: e.target.value })}
                                 />
 
                                 <label className="block mb-4 mt-6 text-gray-700">Password</label>
                                 <input
                                     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                     type="password"
+                                    value={formData.password}
+                                    onChange={e => setFormData({ ...formData, password: e.target.value })}
                                 />
 
                                 <button
@@ -68,7 +99,7 @@ export default function SignUp() {
                                 <p className="mt-4 text-gray-700 text-center">
                                     Already have an account? <a href="/login" className="text-indigo-500">Log in here</a>.
                                 </p>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
