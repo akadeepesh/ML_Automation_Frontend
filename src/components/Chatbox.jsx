@@ -100,6 +100,7 @@ const Home = () => {
                     ...prevMessages,
                     { text: botResponse, type: 'bot' },
                 ]);
+                setBotResponse("Thanks for using but be patient!!!");
             }, 1000); // Simulate delay for bot response
         }
 
