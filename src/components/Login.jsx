@@ -2,7 +2,7 @@ import React from 'react';
 import './styling/Signup.css';
 import { BsArrowLeftCircle } from "react-icons/bs";
 
-function Login() {
+export default function Login() {
     return (
         <div className="background-radial-gradient overflow-hidden">
             <div className="container mx-auto p-4">
@@ -59,5 +59,3 @@ function Login() {
         </div>
     );
 }
-
-export default Login;

@@ -3,7 +3,7 @@ import './styling/Signup.css';
 import { BsArrowLeftCircle } from "react-icons/bs";
 // import { Link as RouteLink } from 'react-router-dom';
 
-function App() {
+export default function SignUp() {
     return (
         <div className="background-radial-gradient overflow-hidden">
             <div className="container mx-auto p-4">
@@ -61,7 +61,7 @@ function App() {
 
                                 <button
                                     className="w-full py-2 mt-10 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
-                                    type="button"
+                                    type="submit"
                                 >
                                     Sign Up
                                 </button>
@@ -76,5 +76,3 @@ function App() {
         </div>
     );
 }
-
-export default App;
