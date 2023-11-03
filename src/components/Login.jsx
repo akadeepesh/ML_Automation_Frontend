@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './styling/Signup.css';
 import { BsArrowLeftCircle } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -26,10 +28,10 @@ export default function Login() {
 
             if (response.ok) {
                 console.log("Success");
-                // Redirect the user or perform other actions upon successful login
+                navigate('/');
             } else {
                 const errorData = await response.text();
-                setError(errorData.detail); // Show error message
+                setError(errorData.detail);
             }
         } catch (error) {
             console.error("Login Error: ", error);
