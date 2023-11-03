@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styling/Signup.css';
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 export default function Login() {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:8000/login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password
+                })
+            });
+
+            if (response.ok) {
+                console.log("Success");
+            }
+            else {
+                const errorData = await response.json();
+                console.error("Login Error: ", errorData);
+            }
+
+        } catch (error) {
+            console.error("Login Error: ", error);
+        }
+        // const data = await response.json();
+        // console.log(data);
+    };
+
     return (
         <div className="background-radial-gradient overflow-hidden">
             <div className="container mx-auto p-4">
@@ -27,12 +62,14 @@ export default function Login() {
                         <div id="radius-shape-2" className="absolute shadow-xl"></div>
 
                         <div className="my-5 bg-opacity-75 bg-white rounded-lg shadow-xl bg-glass">
-                            <div className="p-5">
+                            <form onSubmit={handleSubmit} className="p-5">
                                 <label className="block mb-4 mt-6 text-gray-700">Email</label>
                                 <input
                                     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                     type="email"
                                     placeholder="Email"
+                                    value={formData.email}
+                                    onChange={e => setFormData({ ...formData, email: e.target.value })}
                                 />
 
                                 <label className="block mb-4 mt-6 text-gray-700">Password</label>
@@ -40,6 +77,8 @@ export default function Login() {
                                     className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                     type="password"
                                     placeholder="Password"
+                                    value={formData.password}
+                                    onChange={e => setFormData({ ...formData, password: e.target.value })}
                                 />
 
                                 <button
@@ -51,7 +90,7 @@ export default function Login() {
                                 <p className="mt-4 text-gray-700 text-center">
                                     Don't have an account? <a href="/signup" className="text-indigo-500">Sign up here</a>.
                                 </p>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
