@@ -3,11 +3,12 @@ import './styling/Signup.css';
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 export default function Login() {
-
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
+
+    const [error, setError] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,17 +26,14 @@ export default function Login() {
 
             if (response.ok) {
                 console.log("Success");
+                // Redirect the user or perform other actions upon successful login
+            } else {
+                const errorData = await response.text();
+                setError(errorData.detail); // Show error message
             }
-            else {
-                const errorData = await response.json();
-                console.error("Login Error: ", errorData);
-            }
-
         } catch (error) {
             console.error("Login Error: ", error);
         }
-        // const data = await response.json();
-        // console.log(data);
     };
 
     return (
@@ -83,10 +81,11 @@ export default function Login() {
 
                                 <button
                                     className="w-full py-2 mt-10 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
-                                    type="button"
+                                    type="submit"
                                 >
                                     Log In
                                 </button>
+                                {error}
                                 <p className="mt-4 text-gray-700 text-center">
                                     Don't have an account? <a href="/signup" className="text-indigo-500">Sign up here</a>.
                                 </p>
