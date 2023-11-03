@@ -42,10 +42,7 @@ export default function SignUp() {
                         </h1>
 
                         <p className="text-indigo-200">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-                            quibusdam tempora at cupiditate quis eum maiores libero
-                            veritatis? Dicta facilis sint aliquid ipsum atque?
+                            Signup to get started!
                         </p>
                     </div>
 
