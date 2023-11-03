@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import './styling/Signup.css';
 import { BsArrowLeftCircle } from "react-icons/bs";
-// import { Link as RouteLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function SignUp() {
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstname: '',
@@ -25,6 +27,7 @@ export default function SignUp() {
 
         const data = await response.json();
         console.log(data);
+        navigate('/');
     };
 
     return (
