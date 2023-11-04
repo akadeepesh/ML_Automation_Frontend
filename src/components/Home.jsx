@@ -2,6 +2,7 @@ import React from 'react';
 import './styling/Home.css';
 import { BsArrowRightCircle, BsFillInfoCircleFill } from "react-icons/bs";
 import { Link as RouteLink } from 'react-router-dom';
+import * as HoverCard from '@radix-ui/react-hover-card';
 
 const data = [
   { title: 'Text Tokenization', description: 'Text tokenization is the process of breaking down a piece of text into smaller units called tokens. These tokens can be words, characters, or subwords.' },
@@ -27,6 +28,14 @@ const Home = () => {
   ];
   return (
     <div className='max-w-screen-xl mx-auto p-4'>
+      <HoverCard.Root>
+        <HoverCard.Trigger />
+        <HoverCard.Portal>
+          <HoverCard.Content>
+            <HoverCard.Arrow />
+          </HoverCard.Content>
+        </HoverCard.Portal>
+      </HoverCard.Root>
       <div className="flex flex-wrap -mx-4 mt-20">
         {data.map((item, index) => (
           <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
