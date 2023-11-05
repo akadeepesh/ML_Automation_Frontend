@@ -14,7 +14,7 @@ const Navbar = () => {
                             </div>
                         </div>
                         <div className="flex space-x-4 items-center">
-                            <RouteLink to='/'><ul className="bg-indigo-600 cursor-pointer px-4 py-2 rounded-2xl text-white hover:bg-indigo-500 text-sm">LOG OUT</ul></RouteLink>
+                            <RouteLink to='/login'><ul className="bg-indigo-600 cursor-pointer px-4 py-2 rounded-2xl text-white hover:bg-indigo-500 text-sm">LOG OUT</ul></RouteLink>
                         </div>
                     </div>
                 </div>
