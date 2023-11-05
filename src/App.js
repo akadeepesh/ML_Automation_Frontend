@@ -12,7 +12,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 const Layout = () => {
   const location = useLocation();
-  const isHidden = location.pathname === "/signup" || location.pathname === "/login" || location.pathname === '/tokenization';
+  const isHidden = location.pathname === "/signup" || location.pathname === "/login";
   return (
     <>
       {!isHidden && <AfterNavbar />}
@@ -23,7 +23,7 @@ const Layout = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/tokenization' element={<Tokenization/>}></Route>
         <Route path='/stop-word-removal' element={<StopWord/>}></Route>
-        <Route path='/Stem-Lem' element={<StemmingLemmatization/>}></Route>
+        <Route path='/StemLem' element={<StemmingLemmatization/>}></Route>
       </Routes>
     </>
   );

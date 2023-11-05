@@ -23,7 +23,7 @@ const Home = () => {
   const datapages = [
     "/tokenization",
     "/stop-word-removal",
-    "/Stem-Lem",
+    "/StemLem",
   ];
   return (
     <div className='max-w-screen-xl mx-auto p-4'>
