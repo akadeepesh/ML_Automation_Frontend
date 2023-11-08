@@ -47,8 +47,8 @@ const StemmingLemmatization = () => {
                         value={selectedLanguage}
                         onChange={handleLanguageChange}
                     >
-                        <option value="eng">English</option>
-                        <option value="spanish">Spanish</option>
+                        {/* <option value="eng">English</option>
+                        <option value="spanish">Spanish</option> */}
                         {/* Add more language options here */}
                     </select>
                 </div>
@@ -76,7 +76,7 @@ const StemmingLemmatization = () => {
                     {outputText}
                 </pre>
             </div>
-        </div>
+        </div >
     );
 };
 
