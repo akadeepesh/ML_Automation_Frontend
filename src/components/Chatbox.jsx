@@ -26,7 +26,6 @@ const generateAvatarColor = (name) => {
         borderRadius: '50%',
         fontWeight: 'bold',
         fontSize: '13px',
-        // content: `"${initials}.toUpperCase()"`
     };
 };
 
@@ -87,7 +86,6 @@ const Home = () => {
                 { text: input, type: 'user' },
             ]);
 
-            // Clear the input field
             setInput('');
         }
     };
