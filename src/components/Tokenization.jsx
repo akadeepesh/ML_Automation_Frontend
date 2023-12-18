@@ -1,67 +1,34 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 const Tokenization = () => {
     const [inputText, setInputText] = useState("");
-    const [selectedLanguage, setSelectedLanguage] = useState("eng");
     const [tokenizationOption, setTokenizationOption] = useState("sentence");
     const [outputText, setOutputText] = useState("");
 
-    // Function to handle input text change
     const handleInputChange = (event) => {
         setInputText(event.target.value);
     };
 
-    // Function to handle language selection change
-    const handleLanguageChange = (event) => {
-        setSelectedLanguage(event.target.value);
-    };
-
-    // Function to handle tokenization option change
     const handleTokenizationOptionChange = (event) => {
         setTokenizationOption(event.target.value);
     };
 
-    // Function to submit tokenization request to backend
-    const handleTokenize = () => {
-        // Send a request to your backend to tokenize inputText
-        // and update the outputText state with the result.
-        // Replace this with your actual backend API call.
-        // Example:
-        // fetch(`/api/tokenize?language=${selectedLanguage}&option=${tokenizationOption}`, {
-        //   method: "POST",
-        //   body: JSON.stringify({ text: inputText }),
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // })
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     setOutputText(data.result);
-        //   })
-        //   .catch((error) => {
-        //     console.error("Error fetching data:", error);
-        //   });
-
-        // Placeholder result for demonstration
-        setOutputText(`Sample ${tokenizationOption} tokenization output.`);
+    const handleTokenize = async () => {
+        try {
+            const response = await axios.post('http://localhost:8000/tokenize/', {
+                text: inputText,
+                type: tokenizationOption
+            });
+            setOutputText(response.data.tokens.join(', '));
+        } catch (error) {
+            console.error('Failed to tokenize text:', error);
+        }
     };
 
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-semibold mb-4">Tokenization</h1>
-            <div className="flex mb-4">
-                <div className="flex-grow">
-                    <select
-                        className="p-2 border rounded"
-                        value={selectedLanguage}
-                        onChange={handleLanguageChange}
-                    >
-                        <option value="eng">English</option>
-                        <option value="spanish">Spanish</option>
-                        {/* Add more language options here */}
-                    </select>
-                </div>
-            </div>
             <div className="mb-4">
                 <textarea
                     className="w-full p-2 border rounded"

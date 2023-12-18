@@ -10,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.15",
+    "axios": "^1.6.2",
     "mdb-react-ui-kit": "^6.2.0",
     "postcss": "^8.4.28",
     "react": "^18.2.0",

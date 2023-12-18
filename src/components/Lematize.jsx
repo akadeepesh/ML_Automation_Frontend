@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 
-const StemmingLemmatization = () => {
+const Lemmatization = () => {
     const [inputText, setInputText] = useState("");
-    const [selectedLanguage, setSelectedLanguage] = useState("eng");
     const [outputText, setOutputText] = useState("");
 
     const handleInputChange = (event) => {
         setInputText(event.target.value);
     };
 
-    const handleLanguageChange = (event) => {
-        setSelectedLanguage(event.target.value);
-    };
-
-    const handleStemLemmatize = () => {
+    const handleLemmatize = () => {
         // Send a request to your backend for stemming/lemmatization
         // You will need to pass the inputText and selectedLanguage to your backend
         // Replace this with your actual backend API call.
@@ -34,30 +29,19 @@ const StemmingLemmatization = () => {
         //   });
 
         // Placeholder result for demonstration
-        setOutputText(`Sample stemming/lemmatization output.`);
+        setOutputText(`Sample lemmatization output.`);
     };
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-semibold mb-4">Stemming/Lemmatization</h1>
+            <h1 className="text-2xl font-semibold mb-4">Lemmatization</h1>
             <div className="flex mb-4">
-                <div className="flex-grow">
-                    <select
-                        className="p-2 border rounded"
-                        value={selectedLanguage}
-                        onChange={handleLanguageChange}
-                    >
-                        {/* <option value="eng">English</option>
-                        <option value="spanish">Spanish</option> */}
-                        {/* Add more language options here */}
-                    </select>
-                </div>
             </div>
             <div className="mb-4">
                 <textarea
                     className="w-full p-2 border rounded"
                     rows="6"
-                    placeholder="Enter text for stemming/lemmatization..."
+                    placeholder="Enter text for lemmatization..."
                     value={inputText}
                     onChange={handleInputChange}
                 ></textarea>
@@ -65,9 +49,9 @@ const StemmingLemmatization = () => {
             <div>
                 <button
                     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                    onClick={handleStemLemmatize}
+                    onClick={handleLemmatize}
                 >
-                    Stem/Lemmatize
+                    Lemmatize
                 </button>
             </div>
             <div className="mt-4">
@@ -80,4 +64,4 @@ const StemmingLemmatization = () => {
     );
 };
 
-export default StemmingLemmatization;
+export default Lemmatization;
