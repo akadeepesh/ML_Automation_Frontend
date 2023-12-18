@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 const Lemmatization = () => {
     const [inputText, setInputText] = useState("");
@@ -8,27 +9,16 @@ const Lemmatization = () => {
         setInputText(event.target.value);
     };
 
-    const handleLemmatize = () => {
-        // Send a request to your backend for stemming/lemmatization
-        // You will need to pass the inputText and selectedLanguage to your backend
-        // Replace this with your actual backend API call.
-        // Example:
-        // fetch(`/api/stemlemmatize?language=${selectedLanguage}`, {
-        //   method: "POST",
-        //   body: JSON.stringify({ text: inputText }),
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // })
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     setOutputText(data.result);
-        //   })
-        //   .catch((error) => {
-        //     console.error("Error fetching data:", error);
-        //   });
+    const handleLemmatize = async () => {
+        try {
+            const response = await axios.post('http://localhost:8000/lemmatize/', {
+                text: inputText,
+            });
+            setOutputText(response.data.tokens.join(', '));
+        } catch (error) {
+            console.error('Failed to lemmatize text:', error);
+        }
 
-        // Placeholder result for demonstration
         setOutputText(`Sample lemmatization output.`);
     };
 

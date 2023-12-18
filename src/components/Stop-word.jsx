@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const StopWord = () => {
     const [inputText, setInputText] = useState("");
-    const [selectedLanguage, setSelectedLanguage] = useState("eng");
     const [stopWords, setStopWords] = useState([]);
     const [outputText, setOutputText] = useState("");
     const [customStopWords, setCustomStopWords] = useState("");
@@ -24,14 +23,10 @@ const StopWord = () => {
         // Placeholder stop words for demonstration
         const sampleStopWords = ["the", "and", "is", "in", "it"];
         setStopWords(sampleStopWords);
-    }, [selectedLanguage]);
+    }, []);
 
     const handleInputChange = (event) => {
         setInputText(event.target.value);
-    };
-
-    const handleLanguageChange = (event) => {
-        setSelectedLanguage(event.target.value);
     };
 
     const handleToggleCustomStopWords = () => {
@@ -55,19 +50,6 @@ const StopWord = () => {
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-semibold mb-4">Stop Word Removal</h1>
-            <div className="flex mb-4">
-                <div className="flex-grow">
-                    <select
-                        className="p-2 border rounded"
-                        value={selectedLanguage}
-                        onChange={handleLanguageChange}
-                    >
-                        <option value="eng">English</option>
-                        <option value="spanish">Spanish</option>
-                        {/* Add more language options here */}
-                    </select>
-                </div>
-            </div>
             <div className="mb-4">
                 <textarea
                     className="w-full p-2 border rounded"
