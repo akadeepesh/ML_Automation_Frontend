@@ -5,8 +5,8 @@ import { AiOutlineSend, AiOutlineClose } from "react-icons/ai";
 import './styling/Chatbox.css';
 
 const generateAvatarColor = (name) => {
-    const [firstName, lastName] = name.split(' ');
-    const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+    const [first_name, last_name] = name.split(' ');
+    const initials = (first_name.charAt(0) + last_name.charAt(0)).toUpperCase();
 
     const colors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#FFC107', '#FF9800', '#FF5722', '#795548', '#607D8B'];
 
