@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import './styling/Signup.css';
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { Link as RouteLink } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
 
 
 export default function SignUp() {
-    const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [formData, setFormData] = useState({
-        firstname: '',
-        lastname: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: ''
     });
@@ -18,17 +17,21 @@ export default function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://127.0.0.1:8000/users/', {
+        const response = await fetch('http://127.0.0.1:8000/api/register/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
-        });
+        }).catch(error => console.error('Error:', error));        
 
         const data = await response.json();
-        console.log(data);
-        navigate('/');
+        if (!response.ok) {
+            setErrorMessage(data.non_field_errors[0]);
+            console.error('Server error:', data);
+        } else {
+            console.log(data);
+        }        
     };
 
     return (
@@ -59,8 +62,8 @@ export default function SignUp() {
                                         <input
                                             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                             type="text"
-                                            value={formData.firstname}
-                                            onChange={e => setFormData({ ...formData, firstname: e.target.value })}
+                                            value={formData.first_name}
+                                            onChange={e => setFormData({ ...formData, first_name: e.target.value })}
                                         />
                                     </div>
 
@@ -69,8 +72,8 @@ export default function SignUp() {
                                         <input
                                             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
                                             type="text"
-                                            value={formData.lastname}
-                                            onChange={e => setFormData({ ...formData, lastname: e.target.value })}
+                                            value={formData.last_name}
+                                            onChange={e => setFormData({ ...formData, last_name: e.target.value })}
                                         />
                                     </div>
                                 </div>
@@ -90,6 +93,7 @@ export default function SignUp() {
                                     value={formData.password}
                                     onChange={e => setFormData({ ...formData, password: e.target.value })}
                                 />
+                                {errorMessage && <p className="text-red-500">{errorMessage}</p>}
 
                                 <button
                                     className="w-full py-2 mt-10 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
