@@ -3,7 +3,6 @@ import "./App.css";
 // import Home from './components/Home';
 import Landing from "./components/Landing";
 import Chatbox from "./components/Chatbox";
-import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Tokenization from "./components/Tokenization";
@@ -17,7 +16,6 @@ const Layout = () => {
     location.pathname === "/signup" || location.pathname === "/login";
   return (
     <>
-      {!isHidden && <Navbar />}
       {!isHidden && <Chatbox />}
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
