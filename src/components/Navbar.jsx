@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { Link as RouteLink } from "react-router-dom";
+import { Link as RouteLink, useLocation } from "react-router-dom";
 import "./styling/Navbar.css";
 import axios from "axios";
 
@@ -14,6 +14,8 @@ const client = axios.create({
 });
 
 const Navbar = () => {
+  const location = useLocation();
+  const landingPage = location.pathname === "/";
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const Navbar = () => {
               <div className="text-xl text-brownish lg:text-2xl font-bold cursor-pointer">
                 <a href="/">DeCoder</a>
               </div>
-              {currentUser && (
+              {landingPage && (
                 <ul className="hidden md:flex justify-around cursor-pointer space-x-20">
                   <li className="hover:text-indigo-600 ml-80 text-brownish transition-all ease-in-out">
                     <Link to="home" smooth duration={500}>
