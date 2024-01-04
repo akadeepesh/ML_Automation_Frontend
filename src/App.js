@@ -35,7 +35,7 @@ const Layout = () => {
   const [currentUser, setCurrentUser] = useState();
   useEffect(() => {
     client
-      .get("/api/user")
+      .get("/api/user/")
       .then(function (res) {
         setCurrentUser(true);
       })

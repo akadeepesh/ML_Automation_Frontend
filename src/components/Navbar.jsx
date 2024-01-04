@@ -20,11 +20,12 @@ const Navbar = () => {
 
   useEffect(() => {
     client
-      .get("/api/user")
+      .get("/api/user/")
       .then(function (res) {
         setCurrentUser(true);
       })
       .catch(function (error) {
+        console.error("Error fetching user data:", error);
         setCurrentUser(false);
       });
   }, []);
