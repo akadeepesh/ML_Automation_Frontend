@@ -65,6 +65,12 @@ const Navbar = () => {
             </div>
             <div className="flex space-x-4 items-center">
               {currentUser ? (
+                <RouteLink to="/logout">
+                  <ul className="bg-indigo-600 cursor-pointer px-4 py-2 rounded-2xl text-white hover:bg-indigo-500 text-sm">
+                    LOGOUT
+                  </ul>
+                </RouteLink>
+              ) : (
                 <>
                   <RouteLink to="/login">
                     <ul className="text-brownish cursor-pointer text-sm">
@@ -77,12 +83,6 @@ const Navbar = () => {
                     </ul>
                   </RouteLink>
                 </>
-              ) : (
-                <RouteLink to="/logout">
-                  <ul className="bg-indigo-600 cursor-pointer px-4 py-2 rounded-2xl text-white hover:bg-indigo-500 text-sm">
-                    LOGOUT
-                  </ul>
-                </RouteLink>
               )}
             </div>
           </div>
