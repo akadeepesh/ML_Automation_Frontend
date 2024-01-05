@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
+      <div name="about" className="container px-5 py-24 mx-auto">
         <div className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
           <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
             <svg
@@ -20,11 +20,12 @@ const About = () => {
           </div>
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
             <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-              Shooting Stars
+              Text Data Pre-processesing.
             </h2>
             <p className="leading-relaxed text-base">
-              Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-              taxidermy. Gastropub indxgo juice poutine.
+              It involves tokenization (breaking text into words), stemming and
+              lemmatization (reducing words to their root form), and stop word
+              removal (eliminating common words).
             </p>
             <a
               href="/"
@@ -48,11 +49,12 @@ const About = () => {
         <div className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
             <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-              The Catalyzer
+              Bert Fine Tune.
             </h2>
             <p className="leading-relaxed text-base">
-              Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-              taxidermy. Gastropub indxgo juice poutine.
+              Fine-tuning a BERT model for QnA involves training the model on a
+              specific task, like SQuAD, where it learns to predict start and
+              end tokens for answers in a given passage.
             </p>
             <a
               href="/"
@@ -105,11 +107,11 @@ const About = () => {
           </div>
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
             <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-              The 400 Blows
+              Audio Processesing
             </h2>
             <p className="leading-relaxed text-base">
-              Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-              taxidermy. Gastropub indxgo juice poutine.
+              Involves extracting meaningful features from audio signals and
+              reducing noise for clearer sound analysis.
             </p>
             <a
               href="/"
@@ -131,7 +133,7 @@ const About = () => {
           </div>
         </div>
         <button className="flex mx-auto mt-20 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-          Button
+          SIGN UP
         </button>
       </div>
     </section>

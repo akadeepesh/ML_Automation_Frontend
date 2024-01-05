@@ -55,7 +55,7 @@ const Layout = () => {
       {!LoginSignup && <Chatbox />}
       <Routes>
         <Route path="/" element={<Landing />} />
-        {currentUser ? (
+        {!currentUser ? (
           <>
             <Route path="/home" element={<Home />} />
             <Route path="/tokenization" element={<Tokenization />}></Route>

@@ -3,7 +3,7 @@ import React from "react";
 const Feedback = () => {
   return (
     <section className="text-gray-600 body-font relative min-h-screen">
-      <div className="absolute inset-0 bg-gray-300">
+      <div name="feedback" className="absolute inset-0 bg-gray-300">
         <iframe
           width="100%"
           height="100%"
