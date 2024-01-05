@@ -48,14 +48,14 @@ const Layout = () => {
     if (currentUser && LoginSignup) {
       navigate("/home");
     }
-  }, [currentUser, LoginSignup]);
+  }, [currentUser, LoginSignup, navigate]);
 
   return (
     <>
       {!LoginSignup && <Chatbox />}
       <Routes>
         <Route path="/" element={<Landing />} />
-        {!currentUser ? (
+        {currentUser ? (
           <>
             <Route path="/home" element={<Home />} />
             <Route path="/tokenization" element={<Tokenization />}></Route>
