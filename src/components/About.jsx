@@ -29,7 +29,7 @@ const About = () => {
             </p>
             <a
               href="/"
-              className="mt-3 text-indigo-500 inline-flex items-center"
+              className="mt-3 z-30 text-indigo-500 inline-flex items-center"
             >
               Learn More
               <svg
@@ -58,7 +58,7 @@ const About = () => {
             </p>
             <a
               href="/"
-              className="mt-3 text-indigo-500 inline-flex items-center"
+              className="mt-3 z-30 text-indigo-500 inline-flex items-center"
             >
               Learn More
               <svg
@@ -115,7 +115,7 @@ const About = () => {
             </p>
             <a
               href="/"
-              className="mt-3 text-indigo-500 inline-flex items-center"
+              className="mt-3 z-30 text-indigo-500 inline-flex items-center"
             >
               Learn More
               <svg

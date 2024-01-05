@@ -29,7 +29,7 @@ const Github = () => {
             of this exciting journey, star the repository, and stay updated with
             every commit.
           </p>
-          <div className="flex justify-center">
+          <div className="flex z-30 justify-center">
             <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
               Visit Repository
             </button>
