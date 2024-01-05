@@ -7,15 +7,29 @@ const About = () => {
         <div className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
           <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
             <svg
+              viewBox="-6 -6 36.00 36.00"
               fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="sm:w-16 sm:h-16 w-10 h-10"
-              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#6366F1"
+              transform="matrix(1, 0, 0, 1, 0, 0)"
             >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                stroke="#CCCCCC"
+                strokeWidth="0.144"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M4 6H20M7 12H17M11 18H13"
+                  stroke="#6366F1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.536"
+                ></path>
+              </g>
             </svg>
           </div>
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
@@ -93,16 +107,27 @@ const About = () => {
         <div className="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col">
           <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
             <svg
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="sm:w-16 sm:h-16 w-10 h-10"
-              viewBox="0 0 24 24"
+              fill="#6366F1"
+              width="196px"
+              height="196px"
+              viewBox="-4 -4 24.00 24.00"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#6366F1"
+              strokeWidth="0.00016"
             >
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-              <circle cx="12" cy="7" r="4"></circle>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path
+                  d="M4 10.171V0h12v6H6v7c0 1.657-1.347 3-3 3-1.657 0-3-1.347-3-3a3.002 3.002 0 0 1 4-2.829zM4 12H2v2h2v-2zM6 2v2h8V2H6zm8 6.171V6h2v5c0 1.657-1.347 3-3 3-1.657 0-3-1.347-3-3a3.002 3.002 0 0 1 4-2.829zM14 10h-2v2h2v-2z"
+                  fillRule="evenodd"
+                ></path>{" "}
+              </g>
             </svg>
           </div>
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">

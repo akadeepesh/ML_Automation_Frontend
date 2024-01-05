@@ -16,7 +16,7 @@ const Github = () => {
         </div>
         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-            Unleashing the Power of NLP and Audio Analysis
+            Data Processing and Audio Analysis
             <br className="hidden lg:inline-block" />
             on GitHub
           </h1>
@@ -31,7 +31,7 @@ const Github = () => {
           </p>
           <div className="flex z-30 justify-center">
             <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-              Visit Repository
+              Visit Profile
             </button>
             <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
               Star Repository
