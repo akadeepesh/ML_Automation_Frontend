@@ -3,8 +3,7 @@ import "./styling/Signup.css";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { Link as RouteLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import { login } from "../api";
-
+import { login } from "../auth";
 export default function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -12,39 +11,15 @@ export default function Login() {
     password: "",
   });
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   login(formData).then(
-  //     (data) => {
-  //       if (data.token.access) {
-  //         navigate("/");
-  //       } else {
-  //         console.log("No access token");
-  //       }
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const response = await fetch("http://127.0.0.1:8000/api/user/login/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    }).catch((error) => console.error("Error:", error));
-
-    const data = await response.json();
-    if (!response.ok) {
-      // setErrorMessage(data.errors[0]);
-      console.error("Server error:", data);
-    } else {
+    const data = await login(formData);
+    if (data.token) {
+      localStorage.setItem("token", JSON.stringify(data.token));
+      console.log("Successfully logged in");
       navigate("/");
-      console.log(data);
+    } else {
+      console.error("Server error:", data);
     }
   };
 

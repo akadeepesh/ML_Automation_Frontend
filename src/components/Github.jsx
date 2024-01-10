@@ -35,7 +35,11 @@ const Github = () => {
                 Visit Profile
               </button>
             </a>
-            <a href="https://github.com/akadeepesh/ML_Automation_Backend">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/akadeepesh/ML_Automation_Backend"
+            >
               <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
                 Star Repository
               </button>

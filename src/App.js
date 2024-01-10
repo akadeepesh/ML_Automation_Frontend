@@ -16,39 +16,57 @@ import {
   useNavigate,
 } from "react-router-dom";
 
+import { getProfile } from "./auth";
 import { useState, useEffect } from "react";
 
 const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const LoginSignup =
-    location.pathname === "/signup" || location.pathname === "/login";
-  // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useState(false);
+
+  const publicRoutes = ["/signup"];
+
+  const privateRoutes = [
+    "/home",
+    "/tokenization",
+    "/stop-word-removal",
+    "/StemLem",
+  ];
+
   useEffect(() => {
-    if (currentUser && LoginSignup) {
+    const fetchProfile = async () => {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const data = await getProfile(token);
+      if (data && !data.error) {
+        setCurrentUser(true);
+      } else {
+        setCurrentUser(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  useEffect(() => {
+    if (!currentUser && privateRoutes.includes(location.pathname)) {
+      navigate("/");
+    } else if (currentUser && publicRoutes.includes(location.pathname)) {
       navigate("/home");
     }
-  }, [currentUser, LoginSignup, navigate]);
+    // eslint-disable-next-line
+  }, [currentUser, location, navigate]);
 
   return (
     <>
-      {!LoginSignup && <Chatbox />}
+      {!publicRoutes.includes(location.pathname) && <Chatbox />}
       <Routes>
         <Route path="/" element={<Landing />} />
-        {currentUser ? (
-          <>
-            <Route path="/home" element={<Home />} />
-            <Route path="/tokenization" element={<Tokenization />}></Route>
-            <Route path="/stop-word-removal" element={<StopWord />}></Route>
-            <Route path="/StemLem" element={<Lemmatization />}></Route>
-          </>
-        ) : (
-          <>
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-          </>
-        )}
+        <Route path="/home" element={<Home />} />
+        <Route path="/tokenization" element={<Tokenization />}></Route>
+        <Route path="/stop-word-removal" element={<StopWord />}></Route>
+        <Route path="/StemLem" element={<Lemmatization />}></Route>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );

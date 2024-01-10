@@ -1,15 +1,33 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Link as RouteLink, useLocation } from "react-router-dom";
 import "./styling/Navbar.css";
+import { getProfile } from "../auth";
 
 const Navbar = () => {
   const location = useLocation();
   const landingPage = location.pathname === "/";
-  // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useState(false);
 
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+    setCurrentUser(false);
+  };
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const data = await getProfile(token);
+      if (data && !data.message) {
+        setCurrentUser(true);
+      } else {
+        setCurrentUser(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
   return (
     <header>
       <nav>
@@ -46,11 +64,11 @@ const Navbar = () => {
             </div>
             <div className="flex space-x-4 items-center">
               {currentUser ? (
-                <RouteLink to="/logout">
+                <button onClick={handleLogout}>
                   <ul className="bg-indigo-600 cursor-pointer px-4 py-2 rounded-2xl text-white hover:bg-indigo-500 text-sm">
                     LOGOUT
                   </ul>
-                </RouteLink>
+                </button>
               ) : (
                 <>
                   <RouteLink to="/login">
