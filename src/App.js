@@ -22,9 +22,9 @@ import { useState, useEffect } from "react";
 const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
 
-  const publicRoutes = ["/signup"];
+  const publicRoutes = ["/signup", "/login"];
 
   const privateRoutes = [
     "/home",
@@ -37,7 +37,8 @@ const Layout = () => {
     const fetchProfile = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
       const data = await getProfile(token);
-      if (data && !data.error) {
+      // undefined data.message means no errors.
+      if (data.message === undefined) {
         setCurrentUser(true);
       } else {
         setCurrentUser(false);

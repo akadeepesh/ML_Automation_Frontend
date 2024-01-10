@@ -1,95 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const StopWord = () => {
-  const [inputText, setInputText] = useState("");
-  const [stopWords, setStopWords] = useState([]);
-  const [outputText, setOutputText] = useState("");
-  const [customStopWords, setCustomStopWords] = useState("");
-  const [showCustomStopWords, setShowCustomStopWords] = useState(false);
+  const [sentence, setSentence] = useState("");
+  const [filteredSentence, setFilteredSentence] = useState([]);
 
-  useEffect(() => {
-    // Fetch stop words from your backend based on the selected language
-    // Replace this with your actual backend API call.
-    // Example:
-    // fetch(`/api/stopwords?language=${selectedLanguage}`)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setStopWords(data.stopwords);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching stop words:", error);
-    //   });
-
-    // Placeholder stop words for demonstration
-    const sampleStopWords = ["the", "and", "is", "in", "it"];
-    setStopWords(sampleStopWords);
-  }, []);
-
-  const handleInputChange = (event) => {
-    setInputText(event.target.value);
-  };
-
-  const handleToggleCustomStopWords = () => {
-    setShowCustomStopWords(!showCustomStopWords);
-  };
-
-  const handleCustomStopWordsChange = (event) => {
-    setCustomStopWords(event.target.value);
-  };
-
-  const handleRemoveStopWords = () => {
-    // Remove stop words from input text
-    const inputWords = inputText.split(/\s+/);
-    const filteredWords = inputWords.filter(
-      (word) => !stopWords.includes(word.toLowerCase())
-    );
-    const output = filteredWords.join(" ");
-    setOutputText(output);
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/user/remove_stop_words/",
+        { sentence }
+      );
+      setFilteredSentence(response.data.filtered_sentence);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">Stop Word Removal</h1>
-      <div className="mb-4">
-        <textarea
-          className="w-full p-2 border rounded"
-          rows="6"
-          placeholder="Enter text for stop word removal..."
-          value={inputText}
-          onChange={handleInputChange}
-        ></textarea>
-      </div>
-      <div className="mb-4">
-        <div className="flex items-center">
-          <label className="mr-2">Custom Stop Words:</label>
-          <button
-            className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600"
-            onClick={handleToggleCustomStopWords}
-          >
-            {showCustomStopWords ? "Hide" : "Show"}
-          </button>
-        </div>
-        {showCustomStopWords && (
-          <textarea
-            className="w-full p-2 border rounded mt-2"
-            rows="3"
-            placeholder="Enter custom stop words separated by spaces..."
-            value={customStopWords}
-            onChange={handleCustomStopWordsChange}
-          ></textarea>
-        )}
-      </div>
-      <div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-1/2 bg-white rounded shadow p-6 m-4">
+        <h1 className="mb-4 text-xl font-semibold text-gray-700">
+          Remove Stopwords
+        </h1>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+          type="text"
+          placeholder="Enter sentence"
+          value={sentence}
+          onChange={(e) => setSentence(e.target.value)}
+        />
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          onClick={handleRemoveStopWords}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+          onClick={handleSubmit}
         >
-          Remove Stop Words
+          Submit
         </button>
-      </div>
-      <div className="mt-4">
-        <h2 className="text-lg font-semibold">Output:</h2>
-        <pre className="p-2 border rounded">{outputText}</pre>
+        {filteredSentence.length > 0 && (
+          <div className="mt-4">
+            <h2 className="mb-2 text-lg font-semibold text-gray-700">
+              Filtered Sentence:
+            </h2>
+            <p className="text-gray-700">{filteredSentence.join(" ")}</p>
+          </div>
+        )}
       </div>
     </div>
   );

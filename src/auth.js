@@ -34,19 +34,19 @@ export const getProfile = async (token) => {
   }
 };
 
-// export const logout = async (token) => {
-//   try {
-//     const response = await axios.post(
-//       `${API_URL}logout/`,
-//       { refresh: token.refresh },
-//       {
-//         headers: { Authorization: `Bearer ${token.access}` },
-//       }
-//     );
-//     console.log("Token Deleted");
-//     // localStorage.removeItem("token");
-//     return response.data;
-//   } catch (error) {
-//     return error;
-//   }
-// };
+export const logout = async (token) => {
+  try {
+    const response = await axios.post(
+      `${API_URL}logout/`,
+      { refresh: token.refresh },
+      {
+        headers: { Authorization: `Bearer ${token.access}` },
+      }
+    );
+    console.log("Token Deleted");
+    // localStorage.removeItem("token");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};

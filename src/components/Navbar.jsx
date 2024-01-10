@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Link as RouteLink, useLocation } from "react-router-dom";
 import "./styling/Navbar.css";
-import { getProfile } from "../auth";
+import { getProfile, logout } from "../auth";
 
 const Navbar = () => {
   const location = useLocation();
@@ -11,8 +11,15 @@ const Navbar = () => {
   const [currentUser, setCurrentUser] = useState(false);
 
   const handleLogout = async () => {
-    localStorage.removeItem("token");
-    setCurrentUser(false);
+    const token = JSON.parse(localStorage.getItem("token"));
+    const data = await logout(token);
+    if (data.message === undefined) {
+      localStorage.removeItem("token");
+      setCurrentUser(false);
+      console.log("Logged out successfully");
+    } else {
+      console.error("Error logging out:", data);
+    }
   };
 
   useEffect(() => {

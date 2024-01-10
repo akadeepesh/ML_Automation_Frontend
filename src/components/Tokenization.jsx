@@ -16,10 +16,13 @@ const Tokenization = () => {
 
   const handleTokenize = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/tokenize/", {
-        text: inputText,
-        type: tokenizationOption,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/api/user/tokenize/",
+        {
+          text: inputText,
+          type: tokenizationOption,
+        }
+      );
       setOutputText(response.data.tokens.join(", "));
     } catch (error) {
       console.error("Failed to tokenize text:", error);

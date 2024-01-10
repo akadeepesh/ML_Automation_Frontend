@@ -3,8 +3,10 @@ import Navbar from "./Navbar";
 import Feedback from "./Feedback";
 import About from "./About";
 import Github from "./Github";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
+  const navigate = useNavigate();
   return (
     <section className="text-gray-600 body-font">
       <Navbar />
@@ -130,7 +132,10 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <button className="flex mx-auto mt-16 z-30 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+        <button
+          onClick={() => navigate("home/")}
+          className="flex mx-auto mt-16 z-30 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        >
           Get Started
         </button>
       </div>

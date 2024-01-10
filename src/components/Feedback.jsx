@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Feedback = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const handleFeedback = () => {
+    window.open(`mailto:${email}?body=${encodeURIComponent(message)}`);
+  };
   return (
     <section className="text-gray-600 body-font relative min-h-screen">
       <div name="feedback" className="absolute inset-0 bg-gray-300">
@@ -32,6 +37,7 @@ const Feedback = () => {
               type="email"
               id="email"
               name="email"
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
@@ -45,11 +51,15 @@ const Feedback = () => {
             <textarea
               id="message"
               name="message"
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             />
           </div>
-          <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-            Button
+          <button
+            onClick={handleFeedback}
+            className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          >
+            Send Feedback
           </button>
           <p className="text-xs text-gray-500 mt-3">
             Chicharrones blog helvetica normcore iceland tousled brook viral
@@ -62,3 +72,4 @@ const Feedback = () => {
 };
 
 export default Feedback;
+// service_6mdv4u6 - service id , template_anbet3n, xkEczosPKrA5DSdnA
