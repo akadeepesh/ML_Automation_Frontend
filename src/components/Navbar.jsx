@@ -1,34 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-scroll";
 import { Link as RouteLink, useLocation } from "react-router-dom";
 import "./styling/Navbar.css";
-import axios from "axios";
-
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.xsrfHeaderName = "X-CSRFToken";
-axios.defaults.withCredentials = true;
-
-const client = axios.create({
-  baseURL: "http://127.0.0.1:8000",
-});
 
 const Navbar = () => {
   const location = useLocation();
   const landingPage = location.pathname === "/";
-  const [currentUser, setCurrentUser] = useState();
-
-  useEffect(() => {
-    client
-      .get("/api/user/")
-      .then(function (res) {
-        setCurrentUser(true);
-      })
-      .catch(function (error) {
-        console.error("Error fetching user data:", error);
-        setCurrentUser(false);
-      });
-  }, []);
+  // eslint-disable-next-line
+  const [currentUser, setCurrentUser] = useState(false);
 
   return (
     <header>

@@ -17,33 +17,14 @@ import {
 } from "react-router-dom";
 
 import { useState, useEffect } from "react";
-import axios from "axios";
-
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.xsrfHeaderName = "X-CSRFToken";
-axios.defaults.withCredentials = true;
-
-const client = axios.create({
-  baseURL: "http://127.0.0.1:8000",
-});
 
 const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const LoginSignup =
     location.pathname === "/signup" || location.pathname === "/login";
-  const [currentUser, setCurrentUser] = useState();
-  useEffect(() => {
-    client
-      .get("/api/user/")
-      .then(function (res) {
-        setCurrentUser(true);
-      })
-      .catch(function (error) {
-        setCurrentUser(false);
-      });
-  }, []);
-
+  // eslint-disable-next-line
+  const [currentUser, setCurrentUser] = useState(false);
   useEffect(() => {
     if (currentUser && LoginSignup) {
       navigate("/home");

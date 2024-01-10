@@ -3,6 +3,7 @@ import "./styling/Signup.css";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { Link as RouteLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+// import { login } from "../api";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,28 +12,39 @@ export default function Login() {
     password: "",
   });
 
-  const [error, setError] = useState(null);
-
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   login(formData).then(
+  //     (data) => {
+  //       if (data.token.access) {
+  //         navigate("/");
+  //       } else {
+  //         console.log("No access token");
+  //       }
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   );
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("http://127.0.0.1:8000/api/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
 
-      if (response.ok) {
-        console.log("Success");
-        navigate("/");
-      } else {
-        const errorData = await response.text();
-        setError(errorData.detail);
-      }
-    } catch (error) {
-      console.error("Login Error: ", error);
+    const response = await fetch("http://127.0.0.1:8000/api/user/login/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }).catch((error) => console.error("Error:", error));
+
+    const data = await response.json();
+    if (!response.ok) {
+      // setErrorMessage(data.errors[0]);
+      console.error("Server error:", data);
+    } else {
+      navigate("/");
+      console.log(data);
     }
   };
 
@@ -98,7 +110,7 @@ export default function Login() {
                 >
                   Log In
                 </button>
-                {error}
+                {/* {error} */}
                 <p className="mt-4 text-gray-700 text-center">
                   Don't have an account?{" "}
                   <a href="/signup" className="text-indigo-500">
