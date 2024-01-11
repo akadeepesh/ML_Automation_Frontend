@@ -24,6 +24,6 @@ yarn-error.log*
 
 
 #backup
-backup.txt
+backup.jsx
 
 package-lock.json

@@ -19,11 +19,12 @@ const Tokenization = () => {
       const response = await axios.post(
         "http://localhost:8000/api/user/tokenize/",
         {
-          text: inputText,
+          sentence: inputText,
           type: tokenizationOption,
         }
       );
-      setOutputText(response.data.tokens.join(", "));
+      console.log(response);
+      setOutputText(response.data.tokenized_sentence.join(", "));
     } catch (error) {
       console.error("Failed to tokenize text:", error);
     }

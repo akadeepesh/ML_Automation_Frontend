@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Home from "./components/Home";
 import Landing from "./components/Landing";
-import Chatbox from "./components/Chatbox";
+// import Chatbox from "./components/Chatbox";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Tokenization from "./components/Tokenization";
@@ -59,7 +59,7 @@ const Layout = () => {
 
   return (
     <>
-      {!publicRoutes.includes(location.pathname) && <Chatbox />}
+      {!publicRoutes.includes(location.pathname)} {/*&& <Chatbox />*/}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
