@@ -15,26 +15,6 @@ export default function SignUp() {
     password2: "",
   });
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const response = await fetch("http://127.0.0.1:8000/api/user/register/", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData),
-  //   }).catch((error) => console.error("Error:", error));
-
-  //   const data = await response.json();
-  //   if (!response.ok) {
-  //     setErrorMessage(data.errors[0]);
-  //     console.error("Server error:", data);
-  //   } else {
-  //     localStorage.setItem(data.token);
-  //     console.log(data);
-  //   }
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await register(formData);

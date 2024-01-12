@@ -14,13 +14,13 @@ const data = [
   {
     title: "Stop Word Removal",
     description:
-      "Stop word removal is the process of removing commonly used words, such as “the”, “a”, “an”, and “in”, from a text. You can add your own stop words too. It will be removed.",
+      "Stop word removal is the process of removing commonly used words, such as “the”, “a”, “an”, and “in”, from a text.",
     Imagelink: "https://byteiota.com/wp-content/uploads/2021/01/Stopwords.jpg",
   },
   {
     title: "Stemming/ Lemmatization",
     description:
-      "Stemming and lemmatization are both techniques used in natural language processing (NLP) to reduce words to their base or root form. Stemming converts 'run', 'running', 'runs', all to 'run'.",
+      "Stemming and lemmatization are both techniques used in natural language processing (NLP) to reduce words to their base or root form.",
     Imagelink:
       "https://byteiota.com/wp-content/uploads/2021/01/Stemming-and-Lemmatization-800x400.jpg",
   },
@@ -50,7 +50,11 @@ const Audio = [
 ];
 
 const Home = () => {
-  const datapages = ["/tokenization", "/stop-word-removal", "/StemLem"];
+  const datapages = [
+    "/home/tokenization",
+    "/home/stop-word-removal",
+    "/home/StemLem",
+  ];
   return (
     <>
       <Navbar />
@@ -58,8 +62,8 @@ const Home = () => {
         <div className="flex flex-wrap mt-20">
           {data.map((item, index) => (
             <div key={index} className="w-full md:w-1/2 xl:w-1/3">
-              <div className="m-2 min-h-[515.86px] rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm">
-                <div className="relative min-h-[213px]">
+              <div className="m-2 min-h-[509.84px] rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm">
+                <div className="relative min-h-[230.24px]">
                   <img
                     src={item.Imagelink}
                     alt="Text Processing"
@@ -70,9 +74,11 @@ const Home = () => {
                   <h2 className="mb-2 text-lg font-bold leading-none tracking-tight">
                     {item.title}
                   </h2>
-                  <p className="mb-5 text-neutral-500">{item.description}</p>
+                  <p className="mb-5 min-h-[120px] text-neutral-500">
+                    {item.description}
+                  </p>
                   <RouteLink to={datapages[index]}>
-                    <button className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90">
+                    <button className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-black hover:bg-black/90">
                       Let's Go!
                     </button>
                   </RouteLink>
@@ -97,7 +103,7 @@ const Home = () => {
             <p className="mb-4 text-sm text-neutral-500">
               {bertData.description}
             </p>
-            <button className="inline-flex items-center justify-between w-full sm:w-auto h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90">
+            <button className="inline-flex items-center justify-between w-full sm:w-auto h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-black hover:bg-black/90">
               <span>Let's go!</span>
             </button>
           </div>
@@ -121,7 +127,7 @@ const Home = () => {
                   <p className="mb-5 h-[96px] text-neutral-500">
                     {item.description}
                   </p>
-                  <button className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90">
+                  <button className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-black hover:bg-black/90">
                     Let's go!
                   </button>
                 </div>

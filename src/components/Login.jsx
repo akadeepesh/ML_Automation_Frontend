@@ -4,6 +4,7 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { Link as RouteLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { login } from "../auth";
+import Button from "@material-tailwind/react";
 export default function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -79,12 +80,12 @@ export default function Login() {
                   }
                 />
 
-                <button
+                <Button
                   className="w-full py-2 mt-10 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
                   type="submit"
                 >
                   Log In
-                </button>
+                </Button>
                 {/* {error} */}
                 <p className="mt-4 text-gray-700 text-center">
                   Don't have an account?{" "}

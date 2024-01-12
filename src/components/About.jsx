@@ -1,17 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@material-tailwind/react";
 const About = () => {
   const navigate = useNavigate();
   return (
     <section className="text-gray-600 body-font">
       <div name="about" className="container px-5 py-24 mx-auto">
         <div className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
-          <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+          <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-white text-black flex-shrink-0">
             <svg
               viewBox="-6 -6 36.00 36.00"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              stroke="#6366F1"
+              stroke="black"
               transform="matrix(1, 0, 0, 1, 0, 0)"
             >
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -25,7 +26,7 @@ const About = () => {
               <g id="SVGRepo_iconCarrier">
                 <path
                   d="M4 6H20M7 12H17M11 18H13"
-                  stroke="#6366F1"
+                  stroke="black"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="1.536"
@@ -44,7 +45,7 @@ const About = () => {
             </p>
             <a
               href="/"
-              className="mt-3 z-30 text-indigo-500 inline-flex items-center"
+              className="mt-3 z-30 text-black inline-flex items-center"
             >
               Learn More
               <svg
@@ -73,7 +74,7 @@ const About = () => {
             </p>
             <a
               href="/"
-              className="mt-3 z-30 text-indigo-500 inline-flex items-center"
+              className="mt-3 z-30 text-black inline-flex items-center"
             >
               Learn More
               <svg
@@ -89,7 +90,7 @@ const About = () => {
               </svg>
             </a>
           </div>
-          <div className="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+          <div className="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-white text-black flex-shrink-0">
             <svg
               fill="none"
               stroke="currentColor"
@@ -106,14 +107,14 @@ const About = () => {
           </div>
         </div>
         <div className="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col">
-          <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+          <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-white text-black flex-shrink-0">
             <svg
-              fill="#6366F1"
+              fill="black"
               width="196px"
               height="196px"
               viewBox="-4 -4 24.00 24.00"
               xmlns="http://www.w3.org/2000/svg"
-              stroke="#6366F1"
+              stroke="black"
               strokeWidth="0.00016"
             >
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -141,7 +142,7 @@ const About = () => {
             </p>
             <a
               href="/"
-              className="mt-3 z-30 text-indigo-500 inline-flex items-center"
+              className="mt-3 z-30 text-black inline-flex items-center"
             >
               Learn More
               <svg
@@ -158,12 +159,12 @@ const About = () => {
             </a>
           </div>
         </div>
-        <button
-          onClick={() => navigate("home/")}
-          className="flex mx-auto mt-20 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        <Button
+          onClick={() => navigate("signup/")}
+          className="flex mx-auto mt-20"
         >
           SIGN UP
-        </button>
+        </Button>
       </div>
     </section>
   );

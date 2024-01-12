@@ -4,7 +4,7 @@ import Feedback from "./Feedback";
 import About from "./About";
 import Github from "./Github";
 import { useNavigate } from "react-router-dom";
-
+import { Button } from "@material-tailwind/react";
 const Landing = () => {
   const navigate = useNavigate();
   return (
@@ -31,7 +31,7 @@ const Landing = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="3"
-                className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
+                className="text-black w-6 h-6 flex-shrink-0 mr-4"
                 viewBox="0 0 24 24"
               >
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
@@ -48,7 +48,7 @@ const Landing = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="3"
-                className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
+                className="text-black w-6 h-6 flex-shrink-0 mr-4"
                 viewBox="0 0 24 24"
               >
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
@@ -65,7 +65,7 @@ const Landing = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="3"
-                className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
+                className="text-black w-6 h-6 flex-shrink-0 mr-4"
                 viewBox="0 0 24 24"
               >
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
@@ -84,7 +84,7 @@ const Landing = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="3"
-                className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
+                className="text-black w-6 h-6 flex-shrink-0 mr-4"
                 viewBox="0 0 24 24"
               >
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
@@ -103,7 +103,7 @@ const Landing = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="3"
-                className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
+                className="text-black w-6 h-6 flex-shrink-0 mr-4"
                 viewBox="0 0 24 24"
               >
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
@@ -120,7 +120,7 @@ const Landing = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="3"
-                className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
+                className="text-black w-6 h-6 flex-shrink-0 mr-4"
                 viewBox="0 0 24 24"
               >
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
@@ -132,12 +132,12 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <button
+        <Button
           onClick={() => navigate("home/")}
-          className="flex mx-auto mt-16 z-30 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          className="flex mx-auto mt-16"
         >
           Get Started
-        </button>
+        </Button>
       </div>
       <About />
       <Github />

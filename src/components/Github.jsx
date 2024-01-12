@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Button } from "@material-tailwind/react";
 const Github = () => {
   return (
     <section className="text-gray-600 body-font">
@@ -31,18 +31,16 @@ const Github = () => {
           </p>
           <div className="flex z-30 justify-center">
             <a href="https://github.com/akadeepesh">
-              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                Visit Profile
-              </button>
+              <Button className="">Visit Profile</Button>
             </a>
             <a
               target="_blank"
               rel="noreferrer"
               href="https://github.com/akadeepesh/ML_Automation_Backend"
             >
-              <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+              <Button variant="outlined" className="ml-4">
                 Star Repository
-              </button>
+              </Button>
             </a>
           </div>
         </div>

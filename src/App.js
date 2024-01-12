@@ -28,9 +28,9 @@ const Layout = () => {
 
   const privateRoutes = [
     "/home",
-    "/tokenization",
-    "/stop-word-removal",
-    "/StemLem",
+    "/home/tokenization",
+    "/home/stop-word-removal",
+    "/home/StemLem",
   ];
 
   useEffect(() => {
@@ -63,9 +63,9 @@ const Layout = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/tokenization" element={<Tokenization />}></Route>
-        <Route path="/stop-word-removal" element={<StopWord />}></Route>
-        <Route path="/StemLem" element={<Lemmatization />}></Route>
+        <Route path="/home/tokenization" element={<Tokenization />}></Route>
+        <Route path="/home/stop-word-removal" element={<StopWord />}></Route>
+        <Route path="/home/StemLem" element={<Lemmatization />}></Route>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+// import Button from "@material-tailwind/react";
 
 const Tokenization = () => {
   const [inputText, setInputText] = useState("");
-  const [tokenizationOption, setTokenizationOption] = useState("sentence");
+  const [tokenizationOption, setTokenizationOption] = useState("");
   const [outputText, setOutputText] = useState("");
 
   const handleInputChange = (event) => {
