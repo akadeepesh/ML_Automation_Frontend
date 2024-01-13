@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Button } from "@material-tailwind/react";
 
 const Lemmatization = () => {
   const [inputText, setInputText] = useState("");
@@ -36,12 +37,7 @@ const Lemmatization = () => {
         ></textarea>
       </div>
       <div>
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          onClick={handleLemmatize}
-        >
-          Lemmatize
-        </button>
+        <Button onClick={handleLemmatize}>Lemmatize</Button>
       </div>
       <div className="mt-4">
         <h2 className="text-lg font-semibold">Result:</h2>

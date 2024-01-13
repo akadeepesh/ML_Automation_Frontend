@@ -4,7 +4,7 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { Link as RouteLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { login } from "../auth";
-import Button from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 export default function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({

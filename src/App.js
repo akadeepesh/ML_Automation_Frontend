@@ -37,6 +37,7 @@ const Layout = () => {
     const fetchProfile = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
       const data = await getProfile(token);
+      // console.log("user respone data: ", data.message);
       // undefined data.message means no errors.
       if (data.message === undefined) {
         setCurrentUser(true);

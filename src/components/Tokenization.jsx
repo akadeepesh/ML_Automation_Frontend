@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import Button from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 
 const Tokenization = () => {
   const [inputText, setInputText] = useState("");
@@ -57,12 +57,7 @@ const Tokenization = () => {
         </div>
       </div>
       <div>
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          onClick={handleTokenize}
-        >
-          Tokenize
-        </button>
+        <Button onClick={handleTokenize}>Tokenize</Button>
       </div>
       <div className="mt-4">
         <h2 className="text-lg font-semibold">Tokenization Result:</h2>
