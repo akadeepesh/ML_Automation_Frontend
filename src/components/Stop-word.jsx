@@ -7,13 +7,16 @@ import {
   DialogBody,
   DialogFooter,
 } from "@material-tailwind/react";
+import { Textarea } from "@material-tailwind/react";
 
 const StopWord = () => {
   const [sentence, setSentence] = useState("");
   const [filteredSentence, setFilteredSentence] = useState([]);
   const [showTick, setShowTick] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [openadd, setOpenadd] = React.useState(false);
   const [stopwords, setStopwords] = React.useState([]);
+  const [customwords, setCustomwords] = React.useState([]);
 
   const handleClick = async () => {
     setShowTick(true);
@@ -50,7 +53,23 @@ const StopWord = () => {
       console.error(error);
     }
   };
-
+  const handleSave = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/user/remove_stop_words/",
+        { customwords: customwords, demand: "edit" }
+      );
+      console.log(response);
+      if (response.data !== "Error") {
+        setStopwords(response.data.stop_words.join(", "));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handleEdit = () => {
+    setOpen(!open);
+  };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="w-1/2 bg-white rounded shadow p-6 m-4">
@@ -68,17 +87,41 @@ const StopWord = () => {
               <Button
                 variant="text"
                 color="red"
-                onClick={() => setOpen(!open)}
+                onClick={handleEdit}
                 className="mr-1"
               >
                 <span>Cancel</span>
               </Button>
+              <Dialog open={openadd} handler={() => setOpenadd(!openadd)}>
+                <DialogHeader>Set Custom Stop Words</DialogHeader>
+                <div className="w-full px-10">
+                  <Textarea
+                    onChange={(e) => setCustomwords(e.target.value)}
+                    size="lg"
+                    label="Set You Words (Currently Not in Use)"
+                    error
+                  />
+                </div>
+                <DialogFooter>
+                  <Button
+                    variant="text"
+                    color="red"
+                    onClick={() => setOpenadd(!openadd)}
+                    className="mr-1"
+                  >
+                    <span>Close</span>
+                  </Button>
+                  <Button variant="gradient" color="green" onClick={handleSave}>
+                    <span>Save</span>
+                  </Button>
+                </DialogFooter>
+              </Dialog>
               <Button
                 variant="gradient"
                 color="green"
-                onClick={() => setOpen(!open)}
+                onClick={() => setOpenadd(!openadd)}
               >
-                <span>Confirm</span>
+                <span>Set Custom Words</span>
               </Button>
             </DialogFooter>
           </Dialog>
@@ -138,7 +181,7 @@ const StopWord = () => {
                 </svg>
               )}
             </div>
-            <div className="flex p-4 bg-stone-700 rounded-2xl">
+            <div className="flex p-4 bg-gray-400 rounded-2xl">
               <p className="text-black">{filteredSentence.join(" ")}</p>
             </div>
           </div>
