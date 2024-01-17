@@ -7,7 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Tokenization from "./components/Tokenization";
 import StopWord from "./components/Stop-word";
-import Lemmatization from "./components/Lematize";
+import SemLem from "./components/SemLem";
 import {
   BrowserRouter,
   Routes,
@@ -66,7 +66,7 @@ const Layout = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/home/tokenization" element={<Tokenization />}></Route>
         <Route path="/home/stop-word-removal" element={<StopWord />}></Route>
-        <Route path="/home/StemLem" element={<Lemmatization />}></Route>
+        <Route path="/home/StemLem" element={<SemLem />}></Route>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
