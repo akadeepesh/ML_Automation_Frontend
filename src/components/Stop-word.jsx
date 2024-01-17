@@ -129,7 +129,7 @@ const StopWord = () => {
         <div className="w-full mx-auto">
           <textarea
             type="text"
-            placeholder="Type your message here."
+            placeholder="Enter your data here."
             value={sentence}
             onChange={(e) => setSentence(e.target.value)}
             className="shadow appearance-none flex w-full h-auto px-3 py-2 text-gray-700 leading-tight mb-4 bg-white border rounded border-neutral-300 placeholder:text-neutral-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
