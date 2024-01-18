@@ -10,12 +10,14 @@ const data = [
       "Text tokenization is the process of breaking down a piece of text into smaller units called tokens. These tokens can be words, characters, or subwords.",
     Imagelink:
       "https://miro.medium.com/v2/resize:fit:1400/1*PZYP2nL6Zc_jpkaHLRxLQQ.png",
+    link: "/home/tokenization",
   },
   {
     title: "Stop Word Removal",
     description:
       "Stop word removal is the process of removing commonly used words, such as “the”, “a”, “an”, and “in”, from a text.",
     Imagelink: "https://byteiota.com/wp-content/uploads/2021/01/Stopwords.jpg",
+    link: "/home/stop-word-removal",
   },
   {
     title: "Stemming/ Lemmatization",
@@ -23,6 +25,7 @@ const data = [
       "Stemming and lemmatization are both techniques used in natural language processing (NLP) to reduce words to their base or root form.",
     Imagelink:
       "https://byteiota.com/wp-content/uploads/2021/01/Stemming-and-Lemmatization-800x400.jpg",
+    link: "/home/Stemlem",
   },
 ];
 
@@ -30,6 +33,7 @@ const bertData = {
   title: "NLP Q/A model fine-tuning",
   description:
     "Fine-tuning is the process of training a pre-trained model on a specific task, This is for creating dataset for question answer model means for you have to provide a context, question and then answer from that context.",
+  link: "/home/nlp",
 };
 
 const Audio = [
@@ -50,11 +54,6 @@ const Audio = [
 ];
 
 const Home = () => {
-  const datapages = [
-    "/home/tokenization",
-    "/home/stop-word-removal",
-    "/home/StemLem",
-  ];
   return (
     <>
       <Navbar />
@@ -77,7 +76,7 @@ const Home = () => {
                   <p className="mb-5 min-h-[120px] text-neutral-500">
                     {item.description}
                   </p>
-                  <RouteLink to={datapages[index]}>
+                  <RouteLink to={item.link}>
                     <button className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-black hover:bg-black/90">
                       Let's Go!
                     </button>
@@ -103,9 +102,11 @@ const Home = () => {
             <p className="mb-4 text-sm text-neutral-500">
               {bertData.description}
             </p>
-            <button className="inline-flex items-center justify-between w-full sm:w-auto h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-black hover:bg-black/90">
-              <span>Let's go!</span>
-            </button>
+            <RouteLink to={bertData.link}>
+              <button className="inline-flex items-center justify-between w-full sm:w-auto h-10 px-4 py-2 text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-black hover:bg-black/90">
+                <span>Let's go!</span>
+              </button>
+            </RouteLink>
           </div>
         </div>
         <hr className="my-8 h-[2px] bg-white" />
