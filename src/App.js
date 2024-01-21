@@ -23,15 +23,16 @@ import { useState, useEffect } from "react";
 const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState(true);
 
   const publicRoutes = ["/signup", "/login"];
 
   const privateRoutes = [
-    "/home",
+    "/home/",
     "/home/tokenization",
     "/home/stop-word-removal",
     "/home/StemLem",
+    // "/home/nlp",
   ];
 
   useEffect(() => {

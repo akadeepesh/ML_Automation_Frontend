@@ -26,7 +26,7 @@ const Navbar = () => {
     const fetchProfile = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
       const data = await getProfile(token);
-      if (data && !data.message) {
+      if (data.message === undefined) {
         setCurrentUser(true);
       } else {
         setCurrentUser(false);
