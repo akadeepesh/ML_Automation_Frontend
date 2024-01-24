@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Input, Textarea, Button } from "@material-tailwind/react";
+import { v4 as uuidv4 } from "uuid";
 
 const NLP = () => {
   const [context, setContext] = useState("");
   const [question, setQuestion] = useState("");
   const [answers, setAnswers] = useState([{ text: "", start: null }]);
+  const [qas, setQas] = useState([]);
 
   const handleAnswerChange = (e, index) => {
     const newAnswers = [...answers];
@@ -33,6 +35,16 @@ const NLP = () => {
     setAnswers(newAnswers);
   };
 
+  const addQuestion = () => {
+    setQas([...qas, { id: uuidv4(), question, answers }]);
+    setQuestion("");
+    setAnswers([{ text: "", start: null }]);
+  };
+
+  // const deleteQuestion = (id) => {
+  //   setQas(qas.filter((qa) => qa.id !== id));
+  // };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="flex flex-col w-5/6 bg-white rounded space-y-6 shadow p-6 m-4">
@@ -48,7 +60,7 @@ const NLP = () => {
           <Input
             variant="outlined"
             size="lg"
-            label="Question"
+            label={`Question ${qas.length + 1}`}
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
           />
@@ -84,6 +96,14 @@ const NLP = () => {
               Add Answer
             </Button>
           </div>
+          <Button
+            className="w-fit"
+            size="md"
+            loading={question === "" || answers[answers.length - 1].text === ""}
+            onClick={addQuestion}
+          >
+            Add Question
+          </Button>
         </div>
       </div>
     </div>
