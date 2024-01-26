@@ -23,6 +23,10 @@ const MyForm = () => {
 
   const handleChange = (e, contextIndex, qaIndex, answerIndex) => {
     const updatedData = [...data];
+    // const selectedText = e.target.value.substring(
+    //   e.target.selectionStart,
+    //   e.target.selectionEnd
+    // );
     if (answerIndex !== undefined) {
       updatedData[contextIndex].qas[qaIndex].answers[answerIndex][
         e.target.name
@@ -110,16 +114,16 @@ const MyForm = () => {
               />
               {/* <div className="flex flex-col space-y-6"></div> */}
               {contextData.qas.map((qa, qaIndex) => (
-                <div key={qaIndex}>
+                <div className="flex flex-col space-y-6 ml-5" key={qaIndex}>
                   <Input
                     variant="outlined"
                     label="Question"
                     size="lg"
                     onChange={(e) => handleChange(e, contextIndex, qaIndex)}
                   />
-                  <div className="flex flex-col ml-5 space-y-6">
+                  <div className="flex flex-col ml-10 space-y-6">
                     {qa.answers.map((answer, answerIndex) => (
-                      <div className="flex flex-col mt-6" key={answerIndex}>
+                      <div className="flex flex-col" key={answerIndex}>
                         <Input
                           variant="outlined"
                           size="lg"
@@ -154,22 +158,25 @@ const MyForm = () => {
                       />
                     </div>
                   </div>
+                  <Button
+                    size="md"
+                    className="w-fit"
+                    onClick={() => addQuestion(contextIndex)}
+                  >
+                    Add Question
+                  </Button>
                 </div>
               ))}
-              <Button
-                size="md"
-                className="w-fit"
-                onClick={() => addQuestion(contextIndex)}
-              >
-                Add Question
-              </Button>
+              <Button onClick={addContext}>Add Context</Button>
             </div>
           ))}
-          <Button className="mt-10 mr-10" onClick={addContext}>
-            Add Context
-          </Button>
-          <Button className="mt-10" type="submit">
-            Generate JSON
+          <Button
+            className="relative mt-10 inline-flex items-center justify-center p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-purple-500"
+            type="submit"
+          >
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-700"></span>
+            <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-pink-500 rounded-full opacity-30 group-hover:rotate-90 ease"></span>
+            <span className="relative text-white">Generate JSON</span>
           </Button>
         </form>
       </div>
