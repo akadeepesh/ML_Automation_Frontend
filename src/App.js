@@ -9,6 +9,7 @@ import Tokenization from "./components/Tokenization";
 import StopWord from "./components/Stop-word";
 import SemLem from "./components/SemLem";
 import NLP from "./components/NLP";
+import Template from "./components/Template";
 import {
   BrowserRouter,
   Routes,
@@ -72,6 +73,7 @@ const Layout = () => {
         <Route path="/home/nlp" element={<NLP />}></Route>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/check" element={<Template />} />
       </Routes>
     </>
   );
