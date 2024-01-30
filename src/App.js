@@ -9,6 +9,7 @@ import Tokenization from "./components/Tokenization";
 import StopWord from "./components/Stop-word";
 import SemLem from "./components/SemLem";
 import NLP from "./components/NLP";
+import NoiseReduction from "./components/NoiseReduction";
 
 import {
   BrowserRouter,
@@ -33,7 +34,8 @@ const Layout = () => {
     "/home/tokenization",
     "/home/stop-word-removal",
     "/home/StemLem",
-    // "/home/nlp",
+    "/home/nlp",
+    "/home/noisereduction",
   ];
 
   useEffect(() => {
@@ -73,6 +75,7 @@ const Layout = () => {
         <Route path="/home/nlp" element={<NLP />}></Route>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/home/noisereduction" element={<NoiseReduction />}></Route>
       </Routes>
     </>
   );
