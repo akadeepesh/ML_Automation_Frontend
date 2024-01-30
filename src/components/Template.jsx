@@ -13,7 +13,7 @@ const MyForm = () => {
           answers: [
             {
               text: "",
-              answer_start: 0,
+              answer_start: null,
             },
           ],
         },
@@ -21,12 +21,53 @@ const MyForm = () => {
     },
   ]);
 
+  const updatedData = [...data];
+
+  const handleContextChange = (e, contextIndex) => {
+    updatedData[contextIndex].context = e.target.value;
+    setData(updatedData);
+  };
+
+  const handleAnswerSelection = (e, contextIndex, qaIndex) => {
+    const selectedText = e.target.value.substring(
+      e.target.selectionStart,
+      e.target.selectionEnd
+    );
+    updatedData[contextIndex].qas[qaIndex].answers[0].text = selectedText;
+    updatedData[contextIndex].qas[qaIndex].answers[0].answer_start =
+      e.target.selectionStart;
+    setData(updatedData);
+  };
+
+  // const handleTextSelect = (e, contextIndex, qaIndex, answerIndex) => {
+  //   const selectedText = e.target.value.substring(
+  //     e.target.selectionStart,
+  //     e.target.selectionEnd
+  //   );
+
+  //   // setData((prevData) => [
+  //   //   {
+  //   //     ...prevData[contextIndex],
+  //   //     qas: [
+  //   //       {
+  //   //         ...prevData[contextIndex].qas[qaIndex],
+  //   //         answers: [
+  //   //           {
+  //   //             ...(prevData[contextIndex].qas[qaIndex].answers[
+  //   //               answerIndex
+  //   //             ].text = selectedText),
+  //   //             ...(prevData[contextIndex].qas[qaIndex].answers[
+  //   //               answerIndex
+  //   //             ].answer_start = e.target.selectionStart),
+  //   //           },
+  //   //         ],
+  //   //       },
+  //   //     ],
+  //   //   },
+  //   // ]);
+  // };
+
   const handleChange = (e, contextIndex, qaIndex, answerIndex) => {
-    const updatedData = [...data];
-    // const selectedText = e.target.value.substring(
-    //   e.target.selectionStart,
-    //   e.target.selectionEnd
-    // );
     if (answerIndex !== undefined) {
       updatedData[contextIndex].qas[qaIndex].answers[answerIndex][
         e.target.name
@@ -52,7 +93,7 @@ const MyForm = () => {
             answers: [
               {
                 text: "",
-                answer_start: 0,
+                answer_start: null,
               },
             ],
           },
@@ -70,7 +111,7 @@ const MyForm = () => {
       answers: [
         {
           text: "",
-          answer_start: 0,
+          answer_start: null,
         },
       ],
     });
@@ -81,7 +122,7 @@ const MyForm = () => {
     const updatedData = [...data];
     updatedData[contextIndex].qas[qaIndex].answers.push({
       text: "",
-      answer_start: 0,
+      answer_start: null,
     });
     setData(updatedData);
   };
@@ -98,7 +139,6 @@ const MyForm = () => {
     link.click();
     document.body.removeChild(link);
   };
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="flex flex-col w-5/6 bg-white rounded space-y-6 shadow p-6 m-4">
@@ -108,15 +148,17 @@ const MyForm = () => {
               <Textarea
                 variant="outlined"
                 size="lg"
-                label="Context"
-                name="context"
-                onChange={(e) => handleChange(e, contextIndex)}
+                value={contextData.context}
+                label={`${contextIndex + 1}. Context`}
+                onChange={(e) => handleContextChange(e, contextIndex)}
+                onMouseUp={(e) => handleAnswerSelection(e, contextIndex, 0)}
               />
-              {/* <div className="flex flex-col space-y-6"></div> */}
               {contextData.qas.map((qa, qaIndex) => (
                 <div className="flex flex-col space-y-6 ml-5" key={qaIndex}>
                   <Input
                     variant="outlined"
+                    name="question"
+                    value={qa.question}
                     label="Question"
                     size="lg"
                     onChange={(e) => handleChange(e, contextIndex, qaIndex)}
@@ -127,20 +169,19 @@ const MyForm = () => {
                         <Input
                           variant="outlined"
                           size="lg"
-                          label="Answer"
+                          label={`Answer ${answerIndex + 1}`}
                           name="text"
-                          onChange={(e) =>
-                            handleChange(e, contextIndex, qaIndex, answerIndex)
-                          }
+                          // value={
+                          //   answer.answer_start !== null && answer.text !== ""
+                          //     ? `${answer.text} (Start Index - ${answer.answer_start})`
+                          //     : `${answerIndex + 1}. Select Answer From Context`
+                          // }
+                          value={qa.answers[0].text}
+                          // onChange={(e) =>
+                          //   handleChange(e, contextIndex, qaIndex, answerIndex)
+                          // }
+                          disabled
                         />
-                        {/* <Input
-                          type="number"
-                          name="answer_start"
-                          label="Remove - Answer Start"
-                          onChange={(e) =>
-                            handleChange(e, contextIndex, qaIndex, answerIndex)
-                          }
-                        /> */}
                       </div>
                     ))}
                     <div className="flex flex-row justify-between">

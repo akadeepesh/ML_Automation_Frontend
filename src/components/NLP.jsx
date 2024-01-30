@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Textarea, Button } from "@material-tailwind/react";
+import { Input, Textarea, Button, Alert } from "@material-tailwind/react";
 import { v4 as uuidv4 } from "uuid";
 
 const NLP = () => {
@@ -7,13 +7,6 @@ const NLP = () => {
   const [question, setQuestion] = useState("");
   const [answers, setAnswers] = useState([{ text: "", start: null }]);
   const [qas, setQas] = useState([]);
-
-  const handleAnswerChange = (e, index) => {
-    const newAnswers = [...answers];
-    newAnswers[index].text = e.target.value;
-    newAnswers[index].start = context.indexOf(e.target.value);
-    setAnswers(newAnswers);
-  };
 
   const handleTextSelect = (e) => {
     const selectedText = e.target.value.substring(
@@ -25,7 +18,6 @@ const NLP = () => {
     newAnswers[answers.length - 1].start = e.target.selectionStart;
     setAnswers(newAnswers);
   };
-
   const addAnswer = () => {
     setAnswers([...answers, { text: "", start: null }]);
   };
@@ -41,12 +33,32 @@ const NLP = () => {
     setAnswers([{ text: "", start: null }]);
   };
 
+  function Icon() {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-6 w-6"
+      >
+        <path
+          fillRule="evenodd"
+          d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+          clipRule="evenodd"
+        />
+      </svg>
+    );
+  }
+
   // const deleteQuestion = (id) => {
   //   setQas(qas.filter((qa) => qa.id !== id));
   // };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <Alert className="w-fit" color="red" variant="gradient" icon={<Icon />}>
+        Sorry, This page is under development.
+      </Alert>
       <div className="flex flex-col w-5/6 bg-white rounded space-y-6 shadow p-6 m-4">
         <Textarea
           variant="outlined"
@@ -76,7 +88,6 @@ const NLP = () => {
                       ? `${answer.text} (Start Index - ${answer.start})`
                       : `${index + 1}. Select Answer From Context`
                   }
-                  onChange={(e) => handleAnswerChange(e, index)}
                   disabled
                 />
                 {index === answers.length - 1 && index !== 0 && (
