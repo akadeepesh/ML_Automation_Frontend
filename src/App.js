@@ -35,7 +35,7 @@ const Layout = () => {
     "/home/stop-word-removal",
     "/home/StemLem",
     "/home/nlp",
-    "/home/noisereduction",
+    "/home/noise-reduction",
   ];
 
   useEffect(() => {
@@ -75,7 +75,10 @@ const Layout = () => {
         <Route path="/home/nlp" element={<NLP />}></Route>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home/noisereduction" element={<NoiseReduction />}></Route>
+        <Route
+          path="/home/noise-reduction"
+          element={<NoiseReduction />}
+        ></Route>
       </Routes>
     </>
   );
