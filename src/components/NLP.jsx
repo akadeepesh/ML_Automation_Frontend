@@ -66,6 +66,7 @@ const NLP = () => {
           label="Context"
           value={context}
           onChange={(e) => setContext(e.target.value)}
+          spellCheck="true"
           onMouseUp={handleTextSelect}
         />
         <div className="flex flex-col space-y-6">
