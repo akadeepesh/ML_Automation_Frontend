@@ -36,7 +36,7 @@ const Github = () => {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://github.com/akadeepesh/ML_Automation_Backend"
+              href="https://github.com/akadeepesh/ML_Automation_Frontend"
             >
               <Button variant="outlined" className="ml-4">
                 Star Repository

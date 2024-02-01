@@ -5,7 +5,7 @@ import About from "./About";
 import Github from "./Github";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
-const Landing = () => {
+const Landing = ({ user }) => {
   const navigate = useNavigate();
   return (
     <section className="text-gray-600 body-font">
@@ -133,13 +133,13 @@ const Landing = () => {
           </div>
         </div>
         <Button
-          onClick={() => navigate("home/")}
+          onClick={() => (user ? navigate("home/") : navigate("/login"))}
           className="flex mx-auto mt-16"
         >
           Get Started
         </Button>
       </div>
-      <About />
+      <About user={user} />
       <Github />
       <Feedback />
     </section>

@@ -67,7 +67,7 @@ const Layout = () => {
     <>
       {!publicRoutes.includes(location.pathname)} {/*&& <Chatbox />*/}
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Landing user={currentUser} />} />
         <Route path="/home" element={<Home />} />
         <Route path="/home/tokenization" element={<Tokenization />}></Route>
         <Route path="/home/stop-word-removal" element={<StopWord />}></Route>

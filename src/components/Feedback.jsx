@@ -27,7 +27,7 @@ const Feedback = () => {
             Feedback
           </h2>
           <p className="leading-relaxed mb-5 text-gray-600">
-            Post-ironic portland shabby chic echo park, banjo fashion axe
+            Please feel free to write whatever in your mind.
           </p>
           <div className="relative mb-4">
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">
@@ -59,8 +59,8 @@ const Feedback = () => {
             Send Feedback
           </Button>
           <p className="text-xs text-gray-500 mt-3">
-            Chicharrones blog helvetica normcore iceland tousled brook viral
-            artisan.
+            Your message meant a lot to me, I will check it out as soon as
+            possible and respond positively.
           </p>
         </div>
       </div>

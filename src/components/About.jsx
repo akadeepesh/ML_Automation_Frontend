@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
-const About = () => {
+const About = ({ user }) => {
   const navigate = useNavigate();
   return (
     <section className="text-gray-600 body-font">
@@ -160,7 +160,7 @@ const About = () => {
           </div>
         </div>
         <Button
-          onClick={() => navigate("signup/")}
+          onClick={() => (user ? navigate("/home") : navigate("singup/"))}
           className="flex mx-auto mt-20"
         >
           SIGN UP
