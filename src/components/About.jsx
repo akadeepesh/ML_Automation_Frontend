@@ -39,15 +39,18 @@ const About = ({ user }) => {
               Text Data Pre-processesing.
             </h2>
             <p className="leading-relaxed text-base">
-              It involves tokenization (breaking text into words), stemming and
-              lemmatization (reducing words to their root form), and stop word
-              removal (eliminating common words).
+              It involves tokenization (breaking paragraphs into
+              words/sentences), stemming and lemmatization (reducing words to
+              their root form), and stop word removal (eliminating common
+              words).
             </p>
-            <a
-              href="/"
-              className="mt-3 z-30 text-black inline-flex items-center"
+            <span
+              onClick={() =>
+                user ? navigate("/home/tokenization") : navigate("/login")
+              }
+              className="mt-3 z-30 text-black cursor-pointer inline-flex items-center"
             >
-              Learn More
+              Checkout
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -59,7 +62,7 @@ const About = ({ user }) => {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </span>
           </div>
         </div>
         <div className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
@@ -72,11 +75,13 @@ const About = ({ user }) => {
               specific task, like SQuAD, where it learns to predict start and
               end tokens for answers in a given passage.
             </p>
-            <a
-              href="/"
-              className="mt-3 z-30 text-black inline-flex items-center"
+            <span
+              onClick={() =>
+                user ? navigate("/home/nlp") : navigate("/login")
+              }
+              className="mt-3 z-30 text-black cursor-pointer inline-flex items-center"
             >
-              Learn More
+              Checkout
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -88,7 +93,7 @@ const About = ({ user }) => {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </span>
           </div>
           <div className="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-white text-black flex-shrink-0">
             <svg
@@ -140,11 +145,13 @@ const About = ({ user }) => {
               Involves extracting meaningful features from audio signals and
               reducing noise for clearer sound analysis.
             </p>
-            <a
-              href="/"
-              className="mt-3 z-30 text-black inline-flex items-center"
+            <span
+              onClick={() =>
+                user ? navigate("/home/noise-reduction") : navigate("/login")
+              }
+              className="mt-3 z-30 text-black cursor-pointer inline-flex items-center"
             >
-              Learn More
+              Checkout
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -156,7 +163,7 @@ const About = ({ user }) => {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </span>
           </div>
         </div>
         <Button

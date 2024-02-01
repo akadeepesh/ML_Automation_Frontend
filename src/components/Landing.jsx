@@ -19,7 +19,8 @@ const Landing = ({ user }) => {
             Welcome to our cutting-edge platform, where we harness the power of
             Natural Language Processing (NLP) and audio analysis to provide a
             suite of comprehensive features. Our tools are designed to help you
-            unlock the potential of text and audio data.
+            unlock the potential of Machine Learning thorugh text and audio
+            data.
           </p>
         </div>
         <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
