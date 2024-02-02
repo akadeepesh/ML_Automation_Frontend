@@ -54,10 +54,10 @@ const Audio = [
   },
 ];
 
-const Home = () => {
+const Home = ({ user }) => {
   return (
     <>
-      <Navbar />
+      <Navbar currentUser={user} />
       <div className="max-w-screen-xl mx-auto">
         <div className="flex flex-wrap mt-20">
           {data.map((item, index) => (

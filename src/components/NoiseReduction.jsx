@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Checkbox } from "@material-tailwind/react";
-// import axios from "axios";
+import axios from "axios";
 const NoiseReduction = () => {
   const [audioFile, setAudioFile] = useState(null);
   const [noiseFile, setNoiseFile] = useState(null);
@@ -10,16 +10,35 @@ const NoiseReduction = () => {
   const audioRef = useRef(null);
   const noiseRef = useRef(null);
 
-  const handleAudioChange = (event) => {
+  const handleAudioChange = async (event) => {
     setUploadedAudio(true);
     setAudioFile(event.target.files[0]);
+    const formData = new FormData();
+    formData.append("audio_file", event.target.files[0]);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/user/noise-reduction/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
   const handleNoiseChange = (event) => {
     setUploadedNoise(true);
     setNoiseFile(event.target.files[0]);
   };
 
-  // const handleFileChange = async (e) => {
+  // const handleFile = async (e) => {
   //   const file = e.target.files[0];
   //   const formData = new FormData();
   //   formData.append("audio_file", file);
@@ -49,12 +68,12 @@ const NoiseReduction = () => {
           label="Noise File Same as Audio File"
           ripple={true}
           checked={isSameFile}
-          onClick={() => setIsSameFile(!isSameFile)}
+          onChange={() => setIsSameFile(!isSameFile)}
         />
-        <div className="flex flex-row w-full space-x-12">
+        <div className="flex flex-col md:flex-row w-full gap-12">
           <div
             className={`flex items-center justify-center ${
-              isSameFile ? "w-full" : "w-1/2"
+              isSameFile ? "w-full" : "md:w-1/2 w-full"
             }`}
           >
             <label
@@ -94,23 +113,27 @@ const NoiseReduction = () => {
                     className="hidden"
                     accept="audio/*"
                     onChange={handleAudioChange}
-                    multiple
                   />
                 </>
               )}
               {audioFile && (
-                <audio
-                  ref={audioRef}
-                  src={URL.createObjectURL(audioFile)}
-                  controls
-                >
-                  Your browser does not support the audio element.
-                </audio>
+                <div className="flex flex-col justify-between">
+                  <p className="text-sm text-gray-500 my-5 ml-5">
+                    {audioFile.name} :
+                  </p>
+                  <audio
+                    ref={audioRef}
+                    src={URL.createObjectURL(audioFile)}
+                    controls
+                  >
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
               )}
             </label>
           </div>
           {!isSameFile && (
-            <div className="flex items-center justify-center w-1/2">
+            <div className="flex items-center justify-center md:w-1/2 w-full">
               <label
                 htmlFor="dropzone-file"
                 className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
@@ -153,13 +176,18 @@ const NoiseReduction = () => {
                   </>
                 )}
                 {noiseFile && (
-                  <audio
-                    ref={noiseRef}
-                    src={URL.createObjectURL(noiseFile)}
-                    controls
-                  >
-                    Your browser does not support the audio element.
-                  </audio>
+                  <div className="flex flex-col justify-between">
+                    <p className="text-sm text-gray-500 my-5 ml-5">
+                      {noiseFile.name} :
+                    </p>
+                    <audio
+                      ref={noiseRef}
+                      src={URL.createObjectURL(noiseFile)}
+                      controls
+                    >
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
                 )}
               </label>
             </div>

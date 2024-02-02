@@ -1,40 +1,24 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Link as RouteLink, useLocation } from "react-router-dom";
 import "./styling/Navbar.css";
-import { getProfile, logout } from "../auth";
+import { logout } from "../auth";
 
-const Navbar = () => {
+const Navbar = ({ currentUser }) => {
   const location = useLocation();
   const landingPage = location.pathname === "/";
-  const [currentUser, setCurrentUser] = useState(false);
 
   const handleLogout = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
     const data = await logout(token);
     if (data.message === undefined) {
       localStorage.removeItem("token");
-      setCurrentUser(false);
       console.log("Logged out successfully");
     } else {
       console.error("Error logging out:", data);
     }
   };
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const data = await getProfile(token);
-      if (data.message === undefined) {
-        setCurrentUser(true);
-      } else {
-        setCurrentUser(false);
-      }
-    };
-
-    fetchProfile();
-  }, []);
   return (
     <header>
       <nav>
