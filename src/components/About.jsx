@@ -167,7 +167,7 @@ const About = ({ user }) => {
           </div>
         </div>
         <Button
-          onClick={() => (user ? navigate("/home") : navigate("singup/"))}
+          onClick={() => (user ? navigate("/home") : navigate("/signup"))}
           className="flex mx-auto mt-20"
         >
           SIGN UP
