@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Checkbox } from "@material-tailwind/react";
 import axios from "axios";
+
 const NoiseReduction = () => {
   const [audioFile, setAudioFile] = useState(null);
   const [noiseFile, setNoiseFile] = useState(null);
@@ -13,13 +14,13 @@ const NoiseReduction = () => {
   const handleAudioChange = async (event) => {
     setUploadedAudio(true);
     setAudioFile(event.target.files[0]);
-    const formData = new FormData();
-    formData.append("audio_file", event.target.files[0]);
+    const audioData = new audioData();
+    audioData.append("audio_file", event.target.files[0]);
 
     try {
       const response = await axios.post(
         "http://localhost:8000/api/user/noise-reduction/",
-        formData,
+        audioData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -33,32 +34,28 @@ const NoiseReduction = () => {
     }
   };
 
-  const handleNoiseChange = (event) => {
+  const handleNoiseChange = async (event) => {
     setUploadedNoise(true);
     setNoiseFile(event.target.files[0]);
+    const noiseData = new noiseData();
+    noiseData.append("noise_file", event.target.files[0]);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/user/noise-reduction/",
+        noiseData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
-
-  // const handleFile = async (e) => {
-  //   const file = e.target.files[0];
-  //   const formData = new FormData();
-  //   formData.append("audio_file", file);
-
-  //   try {
-  //     const response = await axios.post(
-  //       "http://127.0.0.1:8000/noise-reduction/",
-  //       formData,
-  //       {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //         },
-  //       }
-  //     );
-
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
