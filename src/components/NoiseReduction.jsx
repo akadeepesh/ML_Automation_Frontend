@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { Checkbox } from "@material-tailwind/react";
 import axios from "axios";
 
+//create single variable instead of two for audio and noise, start from null value, keep one function to send data to backend
+
 const NoiseReduction = () => {
   const [audioFile, setAudioFile] = useState(null);
   const [noiseFile, setNoiseFile] = useState(null);
@@ -14,8 +16,9 @@ const NoiseReduction = () => {
   const handleAudioChange = async (event) => {
     setUploadedAudio(true);
     setAudioFile(event.target.files[0]);
-    const audioData = new audioData();
+    const audioData = new FormData();
     audioData.append("audio_file", event.target.files[0]);
+    audioData.append("noise_file", noiseFile);
 
     try {
       const response = await axios.post(
@@ -37,7 +40,7 @@ const NoiseReduction = () => {
   const handleNoiseChange = async (event) => {
     setUploadedNoise(true);
     setNoiseFile(event.target.files[0]);
-    const noiseData = new noiseData();
+    const noiseData = new FormData();
     noiseData.append("noise_file", event.target.files[0]);
 
     try {

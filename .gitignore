@@ -26,5 +26,3 @@ yarn-error.log*
 #backup
 backup.jsx
 traintry.json
-
-package-lock.json
