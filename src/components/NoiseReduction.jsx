@@ -1,67 +1,94 @@
 import React, { useRef, useState } from "react";
-import { Checkbox } from "@material-tailwind/react";
-import axios from "axios";
-
-//create single variable instead of two for audio and noise, start from null value, keep one function to send data to backend
+import { Checkbox, Alert } from "@material-tailwind/react";
 
 const NoiseReduction = () => {
-  const [audioFile, setAudioFile] = useState(null);
-  const [noiseFile, setNoiseFile] = useState(null);
+  const [audioFile, setAudioFile] = useState("");
+  const [noiseFile, setNoiseFile] = useState("");
   const [uploadedNoise, setUploadedNoise] = useState(false);
   const [uploadedAudio, setUploadedAudio] = useState(false);
   const [isSameFile, setIsSameFile] = useState(false);
+  const [error, setError] = useState(false);
   const audioRef = useRef(null);
   const noiseRef = useRef(null);
 
-  const handleAudioChange = async (event) => {
+  const handleAudioChange = (event) => {
     setUploadedAudio(true);
     setAudioFile(event.target.files[0]);
-    const audioData = new FormData();
-    audioData.append("audio_file", event.target.files[0]);
-    audioData.append("noise_file", noiseFile);
+    setError(true);
+    // const formData = new FormData();
+    // formData.append("audio_file", event.target.files[0]);
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/api/user/noise-reduction/",
-        audioData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+    // try {
+    //   const response = await axios.post(
+    //     "http://localhost:8000/api/user/noise-reduction/",
+    //     formData,
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //   );
 
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+    //   console.log(response.data);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
-  const handleNoiseChange = async (event) => {
+  const handleNoiseChange = (event) => {
     setUploadedNoise(true);
     setNoiseFile(event.target.files[0]);
-    const noiseData = new FormData();
-    noiseData.append("noise_file", event.target.files[0]);
-
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/api/user/noise-reduction/",
-        noiseData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+    setError(true);
   };
 
+  // const handleFile = async (e) => {
+  //   const file = e.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append("audio_file", file);
+
+  //   try {
+  //     const response = await axios.post(
+  //       "http://127.0.0.1:8000/noise-reduction/",
+  //       formData,
+  //       {
+  //         headers: {
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       }
+  //     );
+
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  function Icon() {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-6 w-6"
+      >
+        <path
+          fillRule="evenodd"
+          d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+          clipRule="evenodd"
+        />
+      </svg>
+    );
+  }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <Alert
+        className={`w-fit  ${error ? "" : "hidden"}`}
+        color="red"
+        variant="gradient"
+        icon={<Icon />}
+      >
+        Sorry, We Recived your file(s) {audioFile.name}{" "}
+        {noiseFile ? `and ${noiseFile.name}` : ""} but not able to process it.
+      </Alert>
       <div className="flex flex-col w-5/6 bg-white rounded space-y-6 shadow p-6 m-4">
         <Checkbox
           className="relative"
