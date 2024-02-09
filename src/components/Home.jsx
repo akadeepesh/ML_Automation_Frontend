@@ -51,6 +51,7 @@ const Audio = [
       "Feature extraction is the process of transforming raw data into a set of features that can be easily understood and analyzed.",
     Imagelink:
       "https://www.einfochips.com/blog/wp-content/uploads/2021/10/Building_Intelligent_Audio_Systems_Audio_Feature_Extraction_using_Machine_Learning_Blog_Fetaured_Image.jpg",
+    link: "/home/feature-extraction",
   },
 ];
 

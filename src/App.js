@@ -10,6 +10,7 @@ import StopWord from "./components/Stop-word";
 import SemLem from "./components/SemLem";
 import NLP from "./components/NLP";
 import NoiseReduction from "./components/NoiseReduction";
+import FeatureExtraction from "./components/FeatureExtraction";
 
 import {
   BrowserRouter,
@@ -36,6 +37,7 @@ const Layout = () => {
     "/home/StemLem",
     "/home/nlp",
     "/home/noise-reduction",
+    "/home/feature-extraction",
   ];
 
   useEffect(() => {
@@ -74,6 +76,10 @@ const Layout = () => {
         <Route path="/home/nlp" element={<NLP />}></Route>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route
+          path="/home/feature-extraction"
+          element={<FeatureExtraction />}
+        />
         <Route
           path="/home/noise-reduction"
           element={<NoiseReduction />}
